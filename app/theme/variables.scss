@@ -1,0 +1,23 @@
+@use "sass:color";
+
+:root {
+    --ratio: 1.25;
+
+    --colors-background-start: rgb(39, 35, 39);
+    --colors-background-end: rgb(6, 0, 15);
+
+    --colors-text: rgb(236, 236, 236);
+
+    --colors-text-highlight-strong: rgb(72, 26, 141);
+    --colors-text-highlight: rgb(137, 99, 196);
+    --colors-text-highlight-light: rgb(222, 207, 245);
+
+    --colors-link-hover: #{color.scale(rgb(222, 207, 245), $lightness: -25%)};
+    --colors-link-active: #{color.scale(rgb(222, 207, 245), $lightness: -30%)};
+
+    --font-size-base: 1.25rem;
+
+    --spacing: var(--font-size-base);
+    --spacing-small: 0.4rem;
+    --spacing-big: calc(var(--spacing) * var(--ratio) * var(--ratio));
+}

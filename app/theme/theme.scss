@@ -1,0 +1,28 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  color: var(--colors-text);
+}
+
+body {
+  background: linear-gradient(
+    to bottom,
+    var(--colors-background-start),
+    var(--colors-background-end)
+  );
+  min-height: 100vh;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
+@import "typography";

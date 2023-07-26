@@ -1,0 +1,174 @@
+@mixin text-gradient($from, $to) {
+  color: var(--colors-text-highlight);
+  background-image: linear-gradient(180deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin text-glow($base-color) {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5), 0px 0 20px $base-color;
+}
+
+* {
+  font-size: var(--font-size-base);
+  font-family: var(--font-lora);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-josefin-slab);
+  font-size: var(--base-size);
+  margin-top: calc(var(--base-size) * var(--ratio) * 0.66);
+  margin-bottom: calc(var(--base-size) * var(--ratio) * 0.33);
+  text-decoration: underline;
+  text-decoration-color: var(--colors-text-highlight-strong);
+  text-decoration-thickness: 0.25rem;
+  line-height: 1.3em;
+  font-weight: 400;
+
+  em,
+  strong {
+    font-size: 1em;
+    font-weight: unset;
+    font-family: unset;
+  }
+
+  strong {
+    font-weight: bold;
+    color: var(--colors-text-highlight);
+    @include text-glow(var(--colors-text-highlight));
+  }
+
+  em {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--colors-text-highlight-light);
+  }
+}
+
+h1 {
+  --base-size: calc(
+    var(--font-size-base) * var(--ratio) * var(--ratio) * var(--ratio) *
+      var(--ratio)
+  );
+  text-align: center;
+  font-weight: bold;
+  color: var(--colors-text-highlight-light);
+  text-decoration-color: var(--colors-text-highlight);
+  @include text-glow(var(--colors-text-highlight));
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  --base-size: calc(
+    var(--font-size-base) * var(--ratio) * var(--ratio) * var(--ratio)
+  );
+}
+
+h3 {
+  --base-size: calc(var(--font-size-base) * var(--ratio) * var(--ratio));
+}
+
+h4,
+h5,
+h6 {
+  --base-size: calc(var(--font-size-base) * var(--ratio));
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin-top: var(--spacing);
+  line-height: 1.1em;
+
+  strong {
+    color: var(--colors-text-highlight);
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--colors-text-highlight-light);
+  }
+}
+
+p {
+  &:not(& + p) {
+    text-indent: var(--spacing);
+  }
+
+  &.lead {
+    &::first-letter {
+      font-size: calc(var(--font-size-base) * var(--ratio));
+    }
+
+    font-weight: 500;
+    @include text-gradient(
+      var(--colors-text-highlight-light),
+      var(--colors-text-highlight)
+    );
+    text-indent: 0;
+  }
+}
+
+a {
+  color: var(--colors-text-highlight-light);
+  text-decoration: underline;
+  font-weight: 600;
+  background: none;
+  transition: color 250ms;
+
+  &:hover,
+  &:focus {
+    @include text-glow(var(--colors-text-highlight));
+  }
+
+  &:active {
+    color: var(--colors-text-highlight);
+  }
+}
+
+ol,
+ul {
+  margin-left: var(--spacing-big);
+
+  li {
+    margin-top: var(--spacing-small);
+    transition: margin 100ms;
+  }
+}
+
+ul {
+  list-style-type: square;
+}
+
+li::marker {
+  font-weight: bold;
+  color: var(--colors-text-highlight-light);
+  transition: color 250ms;
+}
+
+li:hover {
+  margin-left: 0.125rem;
+}
+
+li:hover::marker {
+  color: var(--colors-text-highlight);
+}
+
+blockquote {
+  margin-left: var(--spacing);
+  padding-left: var(--spacing);
+  padding-right: var(--spacing-big);
+  border-width: 0 0 0 var(--spacing-small);
+  border-style: solid;
+  border-image: linear-gradient(to bottom, var(--colors-text-highlight), var(--colors-text-highlight-strong)) 1;
+  font-size: 1.1em;
+  letter-spacing: 0.04em;
+}
