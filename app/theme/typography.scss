@@ -119,6 +119,7 @@ p {
 
 a {
   color: var(--colors-text-highlight-light);
+  -webkit-text-fill-color: var(--colors-text-highlight-light);
   text-decoration: underline;
   font-weight: 600;
   background: none;
@@ -131,6 +132,7 @@ a {
 
   &:active {
     color: var(--colors-text-highlight);
+    -webkit-text-fill-color: var(--colors-text-highlight);
   }
 }
 
@@ -168,7 +170,12 @@ blockquote {
   padding-right: var(--spacing-big);
   border-width: 0 0 0 var(--spacing-small);
   border-style: solid;
-  border-image: linear-gradient(to bottom, var(--colors-text-highlight), var(--colors-text-highlight-strong)) 1;
+  border-image: linear-gradient(
+      to bottom,
+      var(--colors-text-highlight),
+      var(--colors-text-highlight-strong)
+    )
+    1;
   font-size: 1.1em;
   letter-spacing: 0.04em;
 }
