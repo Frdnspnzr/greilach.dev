@@ -1,8 +1,6 @@
-import styles from "./page.module.css";
-
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <h1>Heading 1</h1>
       <p className="lead">
         Leadum ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
