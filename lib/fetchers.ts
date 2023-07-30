@@ -4,6 +4,7 @@ import { join } from "path";
 
 const postsDirectory = join(process.cwd(), "_posts");
 const fileExtension = ".mdx";
+const defaultDate = new Date(0);
 
 export function getAllPosts() {
   return getPostSlugs().map(getPost);
@@ -19,6 +20,7 @@ export function getPost(slug: string) {
     title: data.title || "",
     tags: convertTags(data.tags || ""),
     excerpt: data.excerpt || "",
+    date: data.date ? new Date(data.date) : defaultDate,
     slug: slug,
     content,
   };
