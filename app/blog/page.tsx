@@ -1,16 +1,14 @@
+import BackToFronPage from "@/components/BackToFrontPage";
 import { getAllPosts } from "@/lib/fetchers";
 import Link from "next/link";
-import styles from "./blog.module.css";
 
 export default async function Page() {
   const posts = getAllPosts();
 
   return (
-    <div className="container">
+    <>
       <nav>
-        <Link href="/" className={styles.back}>
-          &#8610; Back to front page
-        </Link>
+        <BackToFronPage />
       </nav>
       <h1>greilach.dev/blog</h1>
       <main>
@@ -21,6 +19,6 @@ export default async function Page() {
           </Link>
         ))}
       </main>
-    </div>
+    </>
   );
 }

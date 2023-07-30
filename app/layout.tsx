@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={classNames(lora.variable, josefinSlab.variable)}>
-        {children}
+        <div className="container">{children}</div>
       </body>
     </html>
   );

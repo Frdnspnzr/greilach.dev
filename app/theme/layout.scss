@@ -29,6 +29,6 @@ main {
   > nav {
     grid-area: navigation;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 }
