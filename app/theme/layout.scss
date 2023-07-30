@@ -1,0 +1,34 @@
+main {
+  width: 800px;
+  margin: auto;
+}
+
+.container {
+  display: grid;
+
+  width: min-content;
+  margin: var(--spacing) auto;
+
+  grid-template-columns: 200px 800px 200px;
+  grid-template-areas:
+    "navigation navigation navigation"
+    "header-left header header-right"
+    "left main right";
+
+  gap: var(--spacing);
+
+  > h1 {
+    grid-area: header;
+    margin: 0;
+  }
+
+  > main {
+    grid-area: main;
+  }
+
+  > nav {
+    grid-area: navigation;
+    display: flex;
+    justify-content: space-around;
+  }
+}

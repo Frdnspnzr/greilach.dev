@@ -5,10 +5,8 @@ import { join } from "path";
 const postsDirectory = join(process.cwd(), "_posts");
 const fileExtension = ".mdx";
 
-export function getPostSlugs() {
-  return fs
-    .readdirSync(postsDirectory)
-    .map((s) => s.replace(fileExtension, ""));
+export function getAllPosts() {
+  return getPostSlugs().map(getPost);
 }
 
 export function getPost(slug: string) {
@@ -22,4 +20,12 @@ export function getPost(slug: string) {
     slug: slug,
     content,
   };
+}
+
+function getPostSlugs() {
+  return fs.readdirSync(postsDirectory).map(toSlug);
+}
+
+function toSlug(fileName: string) {
+  return fileName.replace(fileExtension, "");
 }

@@ -20,9 +20,5 @@ body {
   min-height: 100vh;
 }
 
-main {
-  max-width: 800px;
-  margin: auto;
-}
-
 @import "typography";
+@import "layout";

@@ -1,0 +1,5 @@
+.back {
+  align-self: center;
+  grid-area: header-left;
+  font-size: calc(var(--font-size-base) / var(--ratio));
+}

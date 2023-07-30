@@ -55,7 +55,6 @@ h1 {
     var(--font-size-base) * var(--ratio) * var(--ratio) * var(--ratio) *
       var(--ratio)
   );
-  text-align: center;
   font-weight: bold;
   color: var(--colors-text-highlight-light);
   text-decoration-color: var(--colors-text-highlight);
@@ -120,6 +119,7 @@ a {
   font-weight: 600;
   background: none;
   transition: color 250ms;
+  font-size: unset;
 
   &:hover,
   &:focus {
