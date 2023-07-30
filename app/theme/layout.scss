@@ -10,6 +10,7 @@ main {
   margin: var(--spacing) auto;
 
   grid-template-columns: 200px 800px 200px;
+  grid-template-rows: 30px;
   grid-template-areas:
     "navigation navigation navigation"
     "header-left header header-right"
