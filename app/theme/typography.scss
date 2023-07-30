@@ -152,10 +152,6 @@ li::marker {
   transition: color 250ms;
 }
 
-li:hover {
-  margin-left: 0.125rem;
-}
-
 li:hover::marker {
   color: var(--colors-text-highlight);
 }
