@@ -17,6 +17,8 @@ export function getPost(slug: string) {
   return {
     ...data,
     title: data.title || "",
+    tags: convertTags(data.tags || ""),
+    excerpt: data.excerpt || "",
     slug: slug,
     content,
   };
@@ -28,4 +30,11 @@ function getPostSlugs() {
 
 function toSlug(fileName: string) {
   return fileName.replace(fileExtension, "");
+}
+
+function convertTags(tags: string) {
+  if (tags.length === 0) {
+    return [];
+  }
+  return tags.split(",").map((s) => s.trim());
 }

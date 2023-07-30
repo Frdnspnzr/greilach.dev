@@ -1,0 +1,9 @@
+.tag {
+  background-color: var(--colors-text-highlight-strong);
+  padding: var(--spacing-small);
+  margin-right: var(--spacing-small);
+
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: var(--spacing-small);
+}
