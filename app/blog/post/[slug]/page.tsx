@@ -1,5 +1,5 @@
 import BackToFrontPage from "@/components/BackToFrontPage";
-import { getPost } from "@/lib/fetchers";
+import { getAllPosts, getPost } from "@/lib/fetchers";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 
@@ -17,4 +17,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </main>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+
+  return posts.map((p) => ({ slug: p.slug }));
 }
