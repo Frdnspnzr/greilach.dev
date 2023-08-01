@@ -1,9 +1,12 @@
 import BackToFrontPage from "@/components/BackToFrontPage";
 import { getAllPosts, getPost } from "@/lib/fetchers";
+import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 
-export default async function Page({ params }: { params: { slug: string } }) {
+type Props = { params: { slug: string } };
+
+export default async function Page({ params }: Props) {
   const post = getPost(params.slug);
   return (
     <>
@@ -23,4 +26,11 @@ export async function generateStaticParams() {
   const posts = getAllPosts();
 
   return posts.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = getPost(params.slug);
+  return {
+    title: post.title,
+  };
 }
