@@ -11,7 +11,11 @@ export default async function Page() {
       <nav>
         <BackToFronPage />
       </nav>
-      <h1>greilach.dev/blog</h1>
+      <h1>
+        greilach.dev
+        <wbr />
+        /blog
+      </h1>
       <main>
         <h2>Latest posts</h2>
         {posts

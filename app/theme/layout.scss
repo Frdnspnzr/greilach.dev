@@ -1,6 +1,10 @@
 main {
   width: 800px;
   margin: auto;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .container {
@@ -18,6 +22,21 @@ main {
 
   gap: var(--spacing);
 
+  @media only screen and (max-width: 600px) {
+    width: 95vw;
+    margin: 0 2.5vw;
+    grid-template-columns: 95vw;
+    grid-template-rows: 76px;
+    grid-template-areas:
+      "navigation"
+      "header-left"
+      "header"
+      "header-right"
+      "left"
+      "main"
+      "right";
+  }
+
   > h1 {
     grid-area: header;
     margin: 0;
@@ -31,5 +50,11 @@ main {
     grid-area: navigation;
     display: flex;
     justify-content: space-evenly;
+
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+      gap: var(--spacing);
+      align-items: center;
+    }
   }
 }
