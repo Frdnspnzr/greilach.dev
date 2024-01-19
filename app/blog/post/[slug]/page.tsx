@@ -1,24 +1,28 @@
-import BackToFrontPage from "@/components/BackToFrontPage";
 import { getAllPosts, getPost } from "@/lib/fetchers";
 import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import Link from "next/link";
 
 type Props = { params: { slug: string } };
 
 export default async function Page({ params }: Props) {
   const post = getPost(params.slug);
   return (
-    <>
-      <nav>
-        <BackToFrontPage />
-        <Link href="/blog">&#8592; Back to all posts</Link>
-      </nav>
-      <h1>{post.title}</h1>
-      <main>
+    <div className="with-sidebar">
+      <div className="sidebar">
+        <div>
+          <h2>Date</h2>
+          {post.date.toLocaleDateString()}
+        </div>
+        <div>
+          <h2>Author</h2>
+          <p>Pascal Greilach</p>
+        </div>
+      </div>
+      <div className="text-container">
+        <h1>{post.title}</h1>
         <MDXRemote source={post.content} />
-      </main>
-    </>
+      </div>
+    </div>
   );
 }
 
