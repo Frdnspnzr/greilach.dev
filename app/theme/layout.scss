@@ -1,6 +1,7 @@
 .container {
   width: clamp(0px, 95%, var(--size-layout-page));
   margin: auto;
+  padding-block-end: var(--space-xl);
 }
 
 .text-container {

@@ -1,3 +1,4 @@
+import Code from "@/components/Code/Code";
 import Group from "@/components/Group/Group";
 import Title from "@/components/Title/Title";
 import ColorDefinition from "../../components/ColorDefinition/ColorDefinition";
@@ -10,7 +11,7 @@ export const metadata = {
 
 export default async function Page() {
   return (
-    <>
+    <div>
       <Title>design_system</Title>
       <p className="lead">
         These are the governing design principles of this page and all my other
@@ -98,7 +99,7 @@ export default async function Page() {
         only have its own name as the title.
       </p>
       <p>There is a component for creating sub-page titles:</p>
-      <code>&lt;Title&gt;page_title&lt;/Title&gt;</code>
-    </>
+      <Code language="xml">{`<Title>sub_page</Title>`}</Code>
+    </div>
   );
 }
