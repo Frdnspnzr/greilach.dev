@@ -76,6 +76,10 @@ export default async function Page() {
           <td>Source Code</td>
           <td>Source Code Pro</td>
         </tr>
+        <tr>
+          <td>Metadata</td>
+          <td>Inter Tight</td>
+        </tr>
       </table>
       <h2>Elements</h2>
       <h3>Sub-page titles</h3>
