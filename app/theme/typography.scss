@@ -117,7 +117,8 @@ pre, code {
 table {
   border-collapse: collapse;
   table-layout: auto;
-  width: 50ch;
+  width: 100%;
+  margin-block-end: var(--space-s);
 
   th,
   td {

@@ -1,4 +1,5 @@
 import Code from "@/components/Code/Code";
+import Example from "@/components/Example/Example";
 import Group from "@/components/Group/Group";
 import Title from "@/components/Title/Title";
 import ColorDefinition from "../../components/ColorDefinition/ColorDefinition";
@@ -81,6 +82,19 @@ export default async function Page() {
           <td>Inter Tight</td>
         </tr>
       </table>
+      <Example>
+        <h3>Heading</h3>
+        <p>Body text</p>
+        <code>Source Code</code>
+        <p
+          style={{
+            fontFamily: "var(--font-inter-tight)",
+            marginBlockStart: "var(--space-s)",
+          }}
+        >
+          Metadata
+        </p>
+      </Example>
       <h2>Elements</h2>
       <h3>Sub-page titles</h3>
       <p>
