@@ -14,15 +14,15 @@ export default async function Page() {
       <Title>design_system</Title>
       <p className="lead">
         These are the governing design principles of this page and all my other
-        projects that don&quot;t have something similiar on their own.
+        projects that don&apos;t have something similiar on their own.
       </p>
       <p>
-        It&quot;s not meant to be a complete design system that would allow
-        another person to just swing in and keep doing what I&quot;m doing.
+        It&apos;s not meant to be a complete design system that would allow
+        another person to just swing in and keep doing what I&apos;m doing.
         While it aspires to be that its main purpose is to remind me of a few
         things and give me a playground to try out a few things.
       </p>
-      <p>That&quot;s why it may be incomplete and use unusual terminology.</p>
+      <p>That&apos;s why it may be incomplete and use unusual terminology.</p>
       <h2>Sizes & Spacing</h2>
       <h2>Colors</h2>
       <h3>Color Tokens</h3>
@@ -94,8 +94,8 @@ export default async function Page() {
         of that page.
       </p>
       <p>
-        This principle does not reach further down below. For example, a blog
-        post may only have its own name as the title.
+        This principle does not reach further down. For example, a blog post may
+        only have its own name as the title.
       </p>
       <p>There is a component for creating sub-page titles:</p>
       <code>&lt;Title&gt;page_title&lt;/Title&gt;</code>
