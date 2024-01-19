@@ -58,34 +58,25 @@ export default async function Page() {
         <ColorDefinition color="var(--color-faint)">Faint</ColorDefinition>
       </Group>
       <h2>Typography</h2>
-      {/* <h2>Breakpoints</h2>
+      <h3>Fonts</h3>
       <table>
         <tr>
           <th>Name</th>
-          <th>screen width</th>
-          <th>Description</th>
+          <th>Font</th>
         </tr>
         <tr>
-          <td>sm</td>
-          <td>449px and below</td>
-          <td>Mobile phones or very small computer screens.</td>
+          <td>Body</td>
+          <td>Lora</td>
         </tr>
         <tr>
-          <td>md</td>
-          <td>450px - 999px</td>
-          <td>Small computer screens or tablets.</td>
+          <td>Headings</td>
+          <td>Josefin Slab</td>
         </tr>
         <tr>
-          <td>lg</td>
-          <td>1000px - 1999px</td>
-          <td>Ordinary computer screens.</td>
+          <td>Source Code</td>
+          <td>Source Code Pro</td>
         </tr>
-        <tr>
-          <td>xl</td>
-          <td>2000px and up</td>
-          <td>Ultra-wide computer screens.</td>
-        </tr>
-      </table> */}
+      </table>
       <h2>Elements</h2>
       <h3>Sub-page titles</h3>
       <p>

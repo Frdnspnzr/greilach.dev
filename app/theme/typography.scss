@@ -110,6 +110,43 @@ a {
   }
 }
 
+pre, code {
+  font-family: var(--font-source-code-pro);
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 50ch;
+
+  th,
+  td {
+    padding-inline-end: var(--space-2xl);
+    padding-inline-start: var(--space-s);
+  }
+
+  th {
+    font-family: var(--font-josefin-slab);
+    color: var(--color-primary);
+    font-size: var(--font-step-1);
+    text-align: left;
+  }
+
+  td {
+    padding-block: var(--space-xs);
+  }
+
+
+  tr:has(> th) {
+    margin-block-end: var(--space-l);
+    background-color: var(--color-faint);
+  }
+
+  tr:not(:has(> th)) {
+    border-bottom: 1px dotted var(--color-subtle);
+  }
+}
+
 // p,
 // ul,
 // ol,
