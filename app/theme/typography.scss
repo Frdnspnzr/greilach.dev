@@ -155,6 +155,7 @@ ul {
 
 ul {
   list-style-type: square;
+  margin-block-end: var(--space-s);
 }
 
 li::marker {
