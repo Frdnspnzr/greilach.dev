@@ -30,11 +30,13 @@ export default function Code({ language = "typescript", children }: CodeProps) {
       language={language}
       style={monokai}
       showLineNumbers
-      customStyle={{ backgroundColor: "var(--color-faint)" }}
+      customStyle={{
+        backgroundColor: "var(--color-faint)",
+        marginBlockEnd: "var(--space-s)",
+      }}
       lineNumberStyle={{ color: "var(--color-subtle)" }}
     >
       {children}
     </SyntaxHighlighter>
   );
 }
-
