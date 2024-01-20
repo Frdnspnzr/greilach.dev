@@ -109,6 +109,9 @@ export default async function Page() {
       </p>
       <p>There is a component for creating sub-page titles:</p>
       <Code language="xml">{`<Title>sub_page</Title>`}</Code>
+      <Example>
+        <Title>sub_page</Title>
+      </Example>
     </div>
   );
 }
