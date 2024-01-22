@@ -168,59 +168,24 @@ li:hover::marker {
   color: var(--color-secondary);
 }
 
-// p,
-// ul,
-// ol,
-// blockquote {
-//   margin-top: var(--spacing);
-//   line-height: 1.1em;
+.metadata {
+  font-size: var(--font-step--1);
 
-//   strong {
-//     color: var(--color-text-highlight);
-//     font-weight: bold;
-//   }
+  &,
+  & > * {
+    font-family: var(--font-inter_tight);
+  }
 
-//   em {
-//     font-style: italic;
-//     font-weight: 600;
-//     color: var(--color-text-highlight-light);
-//   }
-// }
-
-// p {
-//   &.lead {
-//     &::first-letter {
-//       font-size: calc(var(--font-size-base) * var(--ratio));
-//     }
-
-//     font-weight: 500;
-//     @include text-gradient(
-//       var(--color-text-highlight-light),
-//       var(--color-text-highlight)
-//     );
-//     text-indent: 0;
-//   }
-// }
-
-// a {
-//   color: var(--color-text-highlight-light);
-//   -webkit-text-fill-color: var(--color-text-highlight-light);
-//   text-decoration: underline;
-//   font-weight: 600;
-//   background: none;
-//   transition: color 250ms;
-//   font-size: unset;
-
-//   &:hover,
-//   &:focus {
-//     @include text-glow(var(--color-text-highlight));
-//   }
-
-//   &:active {
-//     color: var(--color-text-highlight);
-//     -webkit-text-fill-color: var(--color-text-highlight);
-//   }
-// }
+  h2 {
+    font-size: var(--font-step-0);
+    color: var(--color-primary);
+    background: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    margin-block-start: 0;
+    margin-block-end: var(--space-2xs);
+  }
+}
 
 // blockquote {
 //   margin-left: var(--spacing);
