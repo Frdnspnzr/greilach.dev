@@ -22,7 +22,7 @@
 
 body {
   font-size: var(--font-step-0);
-  font-family: var(--font-lora);
+  font-family: var(--font-body);
 }
 
 h1,
@@ -31,7 +31,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-josefin-slab);
+  font-family: var(--font-headings);
   text-wrap: balance;
   font-weight: normal;
 
@@ -112,7 +112,7 @@ a {
 
 pre,
 code {
-  font-family: var(--font-source-code-pro);
+  font-family: var(--font-source-code);
 }
 
 table {
@@ -128,7 +128,7 @@ table {
   }
 
   th {
-    font-family: var(--font-josefin-slab);
+    font-family: var(--font-headings);
     color: var(--color-primary);
     font-size: var(--font-step-1);
     text-align: left;
@@ -174,7 +174,7 @@ li:hover::marker {
 
   &,
   & > * {
-    font-family: var(--font-yanone_kaffeesatz);
+    font-family: var(--font-metadata);
   }
 
   h2 {

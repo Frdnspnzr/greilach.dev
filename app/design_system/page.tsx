@@ -96,7 +96,7 @@ export default async function Page() {
           <code>Source Code</code>
           <p
             style={{
-              fontFamily: "var(--font-yanone_kaffeesatz)",
+              fontFamily: "var(--font-metadata)",
               marginBlockStart: "var(--space-s)",
             }}
           >

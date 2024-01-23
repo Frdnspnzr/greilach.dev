@@ -8,18 +8,18 @@ import {
 } from "next/font/google";
 import "./theme/theme.scss";
 
-const lora = Lora({ subsets: ["latin"], variable: "--font-lora" });
+const lora = Lora({ subsets: ["latin"], variable: "--font-body" });
 const josefinSlab = Josefin_Slab({
   subsets: ["latin"],
-  variable: "--font-josefin-slab",
+  variable: "--font-headings",
 });
 const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
-  variable: "--font-source-code-pro",
+  variable: "--font-source-code",
 });
 const yanoneKaffeesatz = Yanone_Kaffeesatz({
   subsets: ["latin"],
-  variable: "--font-yanone_kaffeesatz",
+  variable: "--font-metadata",
 });
 
 export default function RootLayout({
