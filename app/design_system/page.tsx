@@ -80,7 +80,7 @@ export default async function Page() {
         </tr>
         <tr>
           <td>Metadata</td>
-          <td>Inter Tight</td>
+          <td>Yanone Kaffeesatz</td>
         </tr>
       </table>
       <Example>
@@ -89,7 +89,7 @@ export default async function Page() {
         <code>Source Code</code>
         <p
           style={{
-            fontFamily: "var(--font-inter-tight)",
+            fontFamily: "var(--font-yanone_kaffeesatz)",
             marginBlockStart: "var(--space-s)",
           }}
         >

@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import type { Metadata } from "next";
 import {
-  Inter_Tight,
   Josefin_Slab,
   Lora,
   Source_Code_Pro,
+  Yanone_Kaffeesatz
 } from "next/font/google";
 import "./theme/theme.scss";
 
@@ -17,9 +17,9 @@ const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
   variable: "--font-source-code-pro",
 });
-const interTight = Inter_Tight({
+const yanoneKaffeesatz = Yanone_Kaffeesatz({
   subsets: ["latin"],
-  variable: "--font-inter_tight",
+  variable: "--font-yanone_kaffeesatz",
 });
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
           lora.variable,
           josefinSlab.variable,
           sourceCodePro.variable,
-          interTight.variable
+          yanoneKaffeesatz.variable
         )}
       >
         <div className="container">{children}</div>

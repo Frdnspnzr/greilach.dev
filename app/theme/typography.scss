@@ -110,7 +110,8 @@ a {
   }
 }
 
-pre, code {
+pre,
+code {
   font-family: var(--font-source-code-pro);
 }
 
@@ -136,7 +137,6 @@ table {
   td {
     padding-block: var(--space-xs);
   }
-
 
   tr:has(> th) {
     margin-block-end: var(--space-l);
@@ -170,10 +170,11 @@ li:hover::marker {
 
 .metadata {
   font-size: var(--font-step--1);
+  font-weight: 300;
 
   &,
   & > * {
-    font-family: var(--font-inter_tight);
+    font-family: var(--font-yanone_kaffeesatz);
   }
 
   h2 {
