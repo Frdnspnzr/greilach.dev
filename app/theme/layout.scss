@@ -8,6 +8,31 @@
   width: clamp(0px, 95%, var(--size-layout-content));
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-l);
+  margin: auto;
+  justify-content: center;
+  margin-block: var(--space-xs);
+  transition-property: all;
+  transition-duration: 0.5s;
+  flex-wrap: wrap;
+
+  @media (hover: hover) {
+    font-size: var(--font-step--2);
+
+    a {
+      color: var(--color-subtle);
+    }
+
+    &:hover {
+      padding-block-end: var(--space-m);
+      font-size: var(--font-step-0);
+    }
+  }
+}
+
 .with-sidebar {
   display: flex;
   align-items: start;
