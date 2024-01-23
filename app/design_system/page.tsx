@@ -1,6 +1,7 @@
 import Code from "@/components/Code/Code";
 import Example from "@/components/Example/Example";
 import Group from "@/components/Group/Group";
+import Navigation from "@/components/Navigation/Navigation";
 import Title from "@/components/Title/Title";
 import ColorDefinition from "../../components/ColorDefinition/ColorDefinition";
 
@@ -111,6 +112,47 @@ export default async function Page() {
       <Code language="xml">{`<Title>sub_page</Title>`}</Code>
       <Example>
         <Title>sub_page</Title>
+      </Example>
+      <h3>Navigation buttons</h3>
+      <p>
+        When not at the front page there&apos;s navigation buttons visible on
+        top of the page. There&apos;s always at least one button that leads back
+        to the front page and there may be one or more buttons that lead back to
+        various sub pages.
+      </p>
+      <p>
+        The navigation buttons use different types of arrows to mark how far
+        back it will take the user.
+      </p>
+      <table>
+        <tr>
+          <th>Arrow</th>
+          <th>Meaning</th>
+          <th>Example</th>
+        </tr>
+        <tr>
+          <td>&#8656;</td>
+          <td>Front page</td>
+          <td>&#8656; Back to the front page</td>
+        </tr>
+        <tr>
+          <td>&#8592;</td>
+          <td>Landing page of the current sub-page</td>
+          <td>&#8592; Back to all posts</td>
+        </tr>
+        <tr>
+          <td>&#8701;</td>
+          <td>One layer back (but not to a landing page or the front page)</td>
+          <td>&#8701; Back to Project Meeple Party</td>
+        </tr>
+      </table>
+      <p>
+        There is a component for creating navigation texts. Notice that the
+        component does not generate a link.
+      </p>
+      <Code language="xml">{`<Navigation depth="landingpage">Back to all posts</Navigation>`}</Code>
+      <Example>
+        <Navigation depth="landingpage">Back to all posts</Navigation>
       </Example>
     </div>
   );
