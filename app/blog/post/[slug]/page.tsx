@@ -11,6 +11,7 @@ export default async function Page({ params }: Props) {
   const post = getPost(params.slug);
   return (
     <>
+      <h1>{post.title}</h1>
       <nav>
         <BackToFrontPage />
         <Link href="/blog">
@@ -29,7 +30,6 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
         <div className="text-container">
-          <h1>{post.title}</h1>
           <MDXRemote source={post.content} />
         </div>
       </div>

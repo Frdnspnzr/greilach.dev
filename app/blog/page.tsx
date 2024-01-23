@@ -1,5 +1,6 @@
 import BackToFrontPage from "@/components/BackToFrontPage";
 import Tag from "@/components/Tag/Tag";
+import Title from "@/components/Title/Title";
 import { getAllPosts } from "@/lib/fetchers";
 import Link from "next/link";
 
@@ -8,15 +9,11 @@ export default async function Page() {
 
   return (
     <>
+      <Title>blog</Title>
       <nav>
         <BackToFrontPage />
       </nav>
       <div className="text-container">
-        <h1>
-          greilach.dev
-          <wbr />
-          /blog
-        </h1>
         <main>
           <h2>Latest posts</h2>
           {posts

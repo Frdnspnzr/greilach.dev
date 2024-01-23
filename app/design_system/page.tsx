@@ -15,11 +15,11 @@ export const metadata = {
 export default async function Page() {
   return (
     <>
+      <Title>design_system</Title>
       <nav>
         <BackToFrontPage />
       </nav>
       <main>
-        <Title>design_system</Title>
         <p className="lead">
           These are the governing design principles of this page and all my
           other projects that don&apos;t have something similiar on their own.
