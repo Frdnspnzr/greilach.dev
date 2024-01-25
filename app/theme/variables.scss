@@ -35,7 +35,7 @@
   --size-layout-content: 700px;
 
   /*
-   * SEMANTIC COLORS
+   * SEMANTIC COLOR TOKENS
    */
   --color-primary: var(--purple-400);
   --color-primary-light: var(--purple-300);
@@ -45,7 +45,7 @@
   --color-faint: var(--gray-800);
 
   /*
-   * ELEMENT COLORS
+   * COMPONENT COLOR TOKENS
    */
 
   --color-border: var(--color-subtle);
@@ -53,8 +53,8 @@
   --color-paper-background: var(--color-faint);
   --color-paper-border: var(--color-border);
 
-  --colors-background-start: var(--gray-900);
-  --colors-background-end: var(--black);
+  --color-background-start: var(--gray-900);
+  --color-background-end: var(--black);
 
   /*
    * TYPOGRAPHY COLORS
