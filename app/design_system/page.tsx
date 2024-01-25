@@ -35,19 +35,13 @@ export default async function Page() {
         <h2>Colors</h2>
         <h3>Color Tokens</h3>
         <Group>
-          <ColorDefinition color="var(--purple-30)">Purple 30</ColorDefinition>
-          <ColorDefinition color="var(--purple-40)">Purple 40</ColorDefinition>
-          <ColorDefinition color="var(--purple-50)">Purple 50</ColorDefinition>
-          <ColorDefinition color="var(--purple-60)">Purple 60</ColorDefinition>
-          <ColorDefinition color="var(--purple-70)">Purple 70</ColorDefinition>
-          <ColorDefinition color="var(--blue-30)">Blue 30</ColorDefinition>
-          <ColorDefinition color="var(--blue-50)">Blue 50</ColorDefinition>
+          <FullPalette name="Purple" />
+          <FullPalette name="Blue" />
+          <FullPalette name="Yellow" />
+          <FullPalette name="Red" />
           <ColorDefinition color="var(--white)">White</ColorDefinition>
           <ColorDefinition color="var(--black)">Black</ColorDefinition>
-          <ColorDefinition color="var(--gray-10)">Gray 10</ColorDefinition>
-          <ColorDefinition color="var(--gray-50)">Gray 50</ColorDefinition>
-          <ColorDefinition color="var(--gray-70)">Gray 70</ColorDefinition>
-          <ColorDefinition color="var(--gray-100)">Gray 100</ColorDefinition>
+          <FullPalette name="Gray" />
         </Group>
         <h3>Semantic Colors</h3>
         <Group>
@@ -164,6 +158,25 @@ export default async function Page() {
           <Navigation depth="landingpage">Back to all posts</Navigation>
         </Example>
       </main>
+    </>
+  );
+}
+
+function FullPalette({ name }: Readonly<{ name: string }>) {
+  const palette = [];
+  for (let i = 100; i <= 900; i += 100) {
+    palette.push(
+      <ColorDefinition color={`var(--${name.toLowerCase()}-${i})`}>
+        {name} {i}
+      </ColorDefinition>
+    );
+  }
+  return (
+    <>
+      <ColorDefinition color={`var(--${name.toLowerCase()}-50)`}>
+        {name} 50
+      </ColorDefinition>
+      {palette}
     </>
   );
 }
