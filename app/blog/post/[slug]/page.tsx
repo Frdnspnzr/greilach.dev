@@ -1,11 +1,24 @@
 import BackToFrontPage from "@/components/BackToFrontPage";
+import Code from "@/components/Code/Code";
+import ColorDefinition from "@/components/ColorDefinition/ColorDefinition";
+import Example from "@/components/Example/Example";
+import Group from "@/components/Group/Group";
 import Navigation from "@/components/Navigation/Navigation";
+import Tag from "@/components/Tag/Tag";
 import { getAllPosts, getPost } from "@/lib/fetchers";
 import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 
 type Props = { params: { slug: string } };
+
+const components = {
+  ColorDefinition,
+  Group,
+  Code,
+  Example,
+  Tag,
+};
 
 export default async function Page({ params }: Props) {
   const post = getPost(params.slug);
@@ -30,7 +43,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
         <div className="text-container">
-          <MDXRemote source={post.content} />
+          <MDXRemote source={post.content} components={components} />
         </div>
       </div>
     </>
