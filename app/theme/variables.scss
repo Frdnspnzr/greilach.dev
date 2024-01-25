@@ -1,4 +1,4 @@
-@use "sass:color";
+@import "palette";
 
 :root {
   /*
@@ -35,33 +35,14 @@
   --size-layout-content: 700px;
 
   /*
-   * COLOR TOKENS
-   */
-  --purple-30: rgb(203, 176, 244);
-  --purple-40: rgb(169, 135, 220);
-  --purple-50: rgb(123, 85, 181);
-  --purple-60: rgb(80, 50, 125);
-  --purple-70: rgb(51, 25, 91);
-
-  --blue-30: rgb(142, 211, 248);
-  --blue-50: rgb(78, 191, 251);
-
-  --gray-10: rgb(241, 222, 241);
-  --gray-50: rgb(78, 72, 78);
-  --gray-70: rgb(39, 35, 39);
-
-  --white: rgb(241, 241, 241);
-  --black: rgb(15, 15, 15);
-
-  /*
    * SEMANTIC COLORS
    */
-  --color-primary: var(--purple-50);
-  --color-primary-light: var(--purple-40);
-  --color-primary-dark: var(--purple-70);
-  --color-secondary: var(--blue-50);
-  --color-subtle: var(--gray-50);
-  --color-faint: var(--gray-70);
+  --color-primary: var(--purple-400);
+  --color-primary-light: var(--purple-300);
+  --color-primary-dark: var(--purple-600);
+  --color-secondary: var(--blue-400);
+  --color-subtle: var(--gray-500);
+  --color-faint: var(--gray-800);
 
   /*
    * ELEMENT COLORS
@@ -72,14 +53,11 @@
   --color-paper-background: var(--color-faint);
   --color-paper-border: var(--color-border);
 
-  --colors-background-start: var(--gray-70);
+  --colors-background-start: var(--gray-900);
   --colors-background-end: var(--black);
 
   /*
    * TYPOGRAPHY COLORS
    */
   --color-text: var(--white);
-
-  --colors-link-hover: #{color.scale(rgb(222, 207, 245), $lightness: -25%)};
-  --colors-link-active: #{color.scale(rgb(222, 207, 245), $lightness: -30%)};
 }
