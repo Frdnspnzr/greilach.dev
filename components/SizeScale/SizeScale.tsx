@@ -23,7 +23,7 @@ function getCurrentSize(start: Stop, end: Stop, viewportWidth: number) {
     const distIn = end.viewportWidth - start.viewportWidth;
     const distOut = end.size - start.size;
     const position = (viewportWidth - start.viewportWidth) / distIn;
-    return Math.floor(distOut * position + start.size);
+    return Math.round((distOut * position + start.size));
   }
 }
 
