@@ -63,26 +63,30 @@ export default async function Page() {
         <h2>Typography</h2>
         <h3>Fonts</h3>
         <table>
-          <tr>
-            <th>Name</th>
-            <th>Font</th>
-          </tr>
-          <tr>
-            <td>Body</td>
-            <td>Lora</td>
-          </tr>
-          <tr>
-            <td>Headings</td>
-            <td>Josefin Slab</td>
-          </tr>
-          <tr>
-            <td>Source Code</td>
-            <td>Source Code Pro</td>
-          </tr>
-          <tr>
-            <td>Metadata</td>
-            <td>Yanone Kaffeesatz</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Font</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Body</td>
+              <td>Lora</td>
+            </tr>
+            <tr>
+              <td>Headings</td>
+              <td>Josefin Slab</td>
+            </tr>
+            <tr>
+              <td>Source Code</td>
+              <td>Source Code Pro</td>
+            </tr>
+            <tr>
+              <td>Metadata</td>
+              <td>Yanone Kaffeesatz</td>
+            </tr>
+          </tbody>
         </table>
         <Example>
           <h3>Heading</h3>
@@ -126,28 +130,32 @@ export default async function Page() {
           back it will take the user.
         </p>
         <table>
-          <tr>
-            <th>Arrow</th>
-            <th>Meaning</th>
-            <th>Example</th>
-          </tr>
-          <tr>
-            <td>&#8656;</td>
-            <td>Front page</td>
-            <td>&#8656; Back to the front page</td>
-          </tr>
-          <tr>
-            <td>&#8592;</td>
-            <td>Landing page of the current sub-page</td>
-            <td>&#8592; Back to all posts</td>
-          </tr>
-          <tr>
-            <td>&#8701;</td>
-            <td>
-              One layer back (but not to a landing page or the front page)
-            </td>
-            <td>&#8701; Back to Project Meeple Party</td>
-          </tr>
+          <thead>
+            <tr>
+              <th>Arrow</th>
+              <th>Meaning</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&#8656;</td>
+              <td>Front page</td>
+              <td>&#8656; Back to the front page</td>
+            </tr>
+            <tr>
+              <td>&#8592;</td>
+              <td>Landing page of the current sub-page</td>
+              <td>&#8592; Back to all posts</td>
+            </tr>
+            <tr>
+              <td>&#8701;</td>
+              <td>
+                One layer back (but not to a landing page or the front page)
+              </td>
+              <td>&#8701; Back to Project Meeple Party</td>
+            </tr>
+          </tbody>
         </table>
         <p>
           There is a component for creating navigation texts. Notice that the
