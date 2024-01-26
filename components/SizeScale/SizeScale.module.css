@@ -20,13 +20,8 @@
   background-color: var(--color-faint);
 }
 
-.group {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-}
-
 .box {
   background-color: var(--color-example-box);
   margin-inline: var(--space-l);
+  padding: 0 !important;
 }
