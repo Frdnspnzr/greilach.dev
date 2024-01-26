@@ -3,7 +3,9 @@ import Code from "@/components/Code/Code";
 import Example from "@/components/Example/Example";
 import Group from "@/components/Group/Group";
 import Navigation from "@/components/Navigation/Navigation";
+import SizeScale from "@/components/SizeScale/SizeScale";
 import Title from "@/components/Title/Title";
+import Link from "next/link";
 import ColorDefinition from "../../components/ColorDefinition/ColorDefinition";
 
 export const metadata = {
@@ -32,6 +34,81 @@ export default async function Page() {
         </p>
         <p>That&apos;s why it may be incomplete and use unusual terminology.</p>
         <h2>Sizes & Spacing</h2>
+        <p>
+          All sizes are according to the{" "}
+          <Link href="https://utopia.fyi">Utopia Fluid Response Design</Link>{" "}
+          and scale with the viewport width. The <em>minimal viewport width</em>{" "}
+          is <em>500px</em>, the <em>maximum viewport width</em> is{" "}
+          <em>1200px</em> for all scales.
+        </p>
+        <h3>Sizes</h3>
+        <h4>Small (s)</h4>
+        <SizeScale
+          start={{ size: 88, viewportWidth: 500 }}
+          end={{ size: 110, viewportWidth: 1200 }}
+          variable="--size-s"
+        />
+        <h4>Medium (m)</h4>
+        <SizeScale
+          start={{ size: 120, viewportWidth: 500 }}
+          end={{ size: 150, viewportWidth: 1200 }}
+          variable="--size-m"
+        />
+        <h3>Spaces</h3>
+        <h4>Extra extra extra small (3xs)</h4>
+        <SizeScale
+          start={{ size: 3, viewportWidth: 500 }}
+          end={{ size: 4, viewportWidth: 1200 }}
+          variable="--space-3xs"
+        />
+        <h4>Extra extra small (2xs)</h4>
+        <SizeScale
+          start={{ size: 6, viewportWidth: 500 }}
+          end={{ size: 8, viewportWidth: 1200 }}
+          variable="--space-2xs"
+        />
+        <h4>Extra small (xs)</h4>
+        <SizeScale
+          start={{ size: 9, viewportWidth: 500 }}
+          end={{ size: 12, viewportWidth: 1200 }}
+          variable="--space-xs"
+        />
+        <h4>Small (s)</h4>
+        <SizeScale
+          start={{ size: 12, viewportWidth: 500 }}
+          end={{ size: 16, viewportWidth: 1200 }}
+          variable="--space-s"
+        />
+        <h4>Medium (m)</h4>
+        <SizeScale
+          start={{ size: 18, viewportWidth: 500 }}
+          end={{ size: 24, viewportWidth: 1200 }}
+          variable="--space-m"
+        />
+        <h4>Large (l)</h4>
+        <SizeScale
+          start={{ size: 24, viewportWidth: 500 }}
+          end={{ size: 32, viewportWidth: 1200 }}
+          variable="--space-l"
+        />
+        <h4>Extra large (xl)</h4>
+        <SizeScale
+          start={{ size: 36, viewportWidth: 500 }}
+          end={{ size: 48, viewportWidth: 1200 }}
+          variable="--space-xl"
+        />
+        <h4>Extra extra large (2xl)</h4>
+        <SizeScale
+          start={{ size: 48, viewportWidth: 500 }}
+          end={{ size: 64, viewportWidth: 1200 }}
+          variable="--space-2xl"
+        />
+        <h4>Extra extra extra large (3xl)</h4>
+        <SizeScale
+          start={{ size: 72, viewportWidth: 500 }}
+          end={{ size: 96, viewportWidth: 1200 }}
+          variable="--space-3xl"
+        />
         <h2>Colors</h2>
         <h3>Color Tokens</h3>
         <Group>
