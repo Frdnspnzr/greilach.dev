@@ -1,24 +1,4 @@
-@mixin fancy-gradient() {
-  background: radial-gradient(
-      circle at 70% 40%,
-      var(--color-secondary) 0%,
-      var(--color-primary) 70%,
-      var(--color-primary-light) 100%
-    )
-    50% 50%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@mixin text-gradient() {
-  background: linear-gradient(
-      var(--color-primary-light) 0%,
-      var(--color-primary) 100%
-    )
-    50% 50%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+@import "mixins";
 
 body {
   font-size: var(--font-step-0);
@@ -174,8 +154,9 @@ li:hover::marker {
 
 .metadata {
   font-size: var(--font-step--1);
-  font-weight: 300;
-
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  line-height: 1.15em;
   &,
   & > * {
     font-family: var(--font-metadata);

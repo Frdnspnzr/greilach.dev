@@ -18,6 +18,7 @@ const components = {
   Code,
   Example,
   Tag,
+  code: (props: any) => <Code {...props} />,
 };
 
 export default async function Page({ params }: Props) {
@@ -33,13 +34,27 @@ export default async function Page({ params }: Props) {
       </nav>
       <div className="with-sidebar">
         <div className="sidebar">
-          <div>
+          <div className="metadata">
             <h2>Date</h2>
             {post.date.toLocaleDateString()}
           </div>
-          <div>
-            <h2>Author</h2>
-            <p>Pascal Greilach</p>
+          <div className="metadata">
+            <h2>Topics</h2>
+            {post.tags.join(", ")}
+          </div>
+          <div className="metadata wide">
+            <h2>About me</h2>
+            <p>
+              I&apos;m <strong className="fancy">Pascal Greilach</strong> and
+              I&apos;m doing stuff with computers! My day job is{" "}
+              <strong className="fancy">
+                full-stack application development
+              </strong>
+              . In my free time I&apos;m doing exactly the same but slightly
+              less annoyed with the technologies I use. I like the web, nice
+              things and all kinds of games (the full spectrum from lightweight
+              collaborative roleplaying to multiplayer ego-shooter).
+            </p>
           </div>
         </div>
         <div className="text-container">

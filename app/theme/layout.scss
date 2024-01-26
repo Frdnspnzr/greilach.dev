@@ -59,8 +59,12 @@ nav {
   justify-content: stretch;
 
   > * {
-    flex-basis: 40vw;
+    flex-basis: 30vw;
     flex-grow: 1;
     flex-shrink: 999;
+  }
+
+  > .wide {
+    flex-basis: 50vw;
   }
 }
