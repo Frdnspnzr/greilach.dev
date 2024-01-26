@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  grid-template-columns:
+    max-content min-content minmax(var(--size), min-content)
+    min-content;
+  text-align: center;
+}
+
+.container > div {
+  padding-inline: var(--space-s);
+  padding-block: var(--space-xs);
+}
+
+.heading {
+  font-family: var(--font-headings);
+  /* text-decoration: underline; */
+  text-decoration-color: var(--color-secondary);
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.1em;
+  background-color: var(--color-faint);
+}
+
+.group {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+.box {
+  background-color: var(--color-example-box);
+  margin-inline: var(--space-l);
+}
