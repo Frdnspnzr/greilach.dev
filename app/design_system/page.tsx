@@ -1,6 +1,7 @@
 import BackToFrontPage from "@/components/BackToFrontPage";
 import Code from "@/components/Code/Code";
 import Example from "@/components/Example/Example";
+import { FontSizeTable } from "@/components/FontSizeTable/FontSizeTable";
 import Group from "@/components/Group/Group";
 import Navigation from "@/components/Navigation/Navigation";
 import SizeScale from "@/components/SizeScale/SizeScale";
@@ -178,6 +179,95 @@ export default async function Page() {
             Metadata
           </p>
         </Example>
+        <h3>Font sizes</h3>
+        <p>
+          The fonts, like all other sizes, follow the{" "}
+          <Link href="https://utopia.fyi">Utopia Fluid Response Design</Link>{" "}
+          system. A total of eight different font sizes are utilized.
+        </p>
+        <FontSizeTable />
+        <p>The font sizes are used for the following elements:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Element</th>
+              <th>Size step</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Body text</td>
+              <td>0</td>
+              <td>Example</td>
+            </tr>
+            <tr>
+              <td>Lead text</td>
+              <td>1</td>
+              <td className="lead">Example</td>
+            </tr>
+            <tr>
+              <td>Heading Level 1</td>
+              <td>5</td>
+              <td>
+                <h1 style={{ margin: 0, padding: 0 }}>Example</h1>
+              </td>
+            </tr>
+            <tr>
+              <td>Heading Level 2</td>
+              <td>4</td>
+              <td>
+                <h2 style={{ margin: 0, padding: 0 }}>Example</h2>
+              </td>
+            </tr>
+            <tr>
+              <td>Heading Level 3</td>
+              <td>3</td>
+              <td>
+                <h3 style={{ margin: 0, padding: 0 }}>Example</h3>
+              </td>
+            </tr>
+            <tr>
+              <td>Heading Level 4</td>
+              <td>2</td>
+              <td>
+                <h4 style={{ margin: 0, padding: 0 }}>Example</h4>
+              </td>
+            </tr>
+            <tr>
+              <td>Metadata</td>
+              <td>-1</td>
+              <td className="metadata">Example</td>
+            </tr>
+            <tr>
+              <td>Metadata Heading</td>
+              <td>0</td>
+              <td className="metadata">
+                <h2 style={{ margin: 0, padding: 0 }}>Example</h2>
+              </td>
+            </tr>
+            <tr>
+              <td>Table body</td>
+              <td>0</td>
+              <td>Example</td>
+            </tr>
+            <tr>
+              <td>Table head</td>
+              <td>1</td>
+              <td
+                style={{
+                  fontFamily: "var(--font-headings)",
+                  color: "var(--color-primary)",
+                  fontSize: "var(--font-step-1)",
+                  fontWeight: 700,
+                }}
+              >
+                Example
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Layout</h2>
         <h2>Elements</h2>
         <h3>Sub-page titles</h3>
         <p>

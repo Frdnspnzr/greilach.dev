@@ -1,5 +1,6 @@
 "use client";
 
+import { getFraction } from "@/lib/scale";
 import { useWindowSize } from "@uidotdev/usehooks";
 import styles from "./SizeScale.module.css";
 
@@ -15,16 +16,12 @@ interface SizeScaleProps {
 }
 
 function getCurrentSize(start: Stop, end: Stop, viewportWidth: number) {
-  if (viewportWidth <= start.viewportWidth) {
-    return start.size;
-  } else if (viewportWidth >= end.viewportWidth) {
-    return end.size;
-  } else {
-    const distIn = end.viewportWidth - start.viewportWidth;
-    const distOut = end.size - start.size;
-    const position = (viewportWidth - start.viewportWidth) / distIn;
-    return Math.round((distOut * position + start.size));
-  }
+  const fraction = getFraction(
+    start.viewportWidth,
+    end.viewportWidth,
+    viewportWidth
+  );
+  return Math.round((end.size - start.size) * fraction + start.size);
 }
 
 export default function SizeScale({

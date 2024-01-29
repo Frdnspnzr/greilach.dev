@@ -15,6 +15,8 @@ export const typeScale = calculateTypeScale({
   maxFontSize: 20,
   minTypeScale: 1.2,
   maxTypeScale: 1.25,
+  positiveSteps: 5,
+  negativeSteps: 2,
 });
 
 export const spaceScale = calculateSpaceScale({
@@ -22,6 +24,8 @@ export const spaceScale = calculateSpaceScale({
   maxWidth,
   minSize: 12,
   maxSize: 16,
+  positiveSteps: [1.5, 2, 3, 4, 6],
+  negativeSteps: [0.75, 0.5, 0.25],
 });
 
 export const sizeScale: UtopiaSize[] = [];

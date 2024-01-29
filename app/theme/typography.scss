@@ -62,13 +62,11 @@ h4 {
 
 p {
   margin-block-end: var(--space-s);
+  max-width: 50ch;
+
   &.lead {
-    @include fancy-gradient();
-    font-weight: bold;
-    font-size: var(--font-step-1);
     width: 100%;
   }
-  max-width: 50ch;
 
   strong {
     font: inherit;
@@ -116,6 +114,7 @@ table {
     color: var(--color-primary);
     font-size: var(--font-step-1);
     text-align: left;
+    font-weight: 700;
   }
 
   td {
@@ -171,6 +170,12 @@ li:hover::marker {
     margin-block-start: 0;
     margin-block-end: var(--space-2xs);
   }
+}
+
+.lead {
+  @include fancy-gradient();
+  font-weight: bold;
+  font-size: var(--font-step-1);
 }
 
 // blockquote {
