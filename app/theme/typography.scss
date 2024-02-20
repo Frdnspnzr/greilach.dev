@@ -156,8 +156,9 @@ li:hover::marker {
 
 .metadata {
   font-size: var(--font-step--1);
-  font-weight: 200;
-  letter-spacing: 0.05em;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  word-spacing: 0.08em;
   line-height: 1.15em;
   &,
   & > * {
