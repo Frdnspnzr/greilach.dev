@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import {
   Josefin_Slab,
   Lora,
-  Source_Code_Pro,
-  Yanone_Kaffeesatz,
+  Victor_Mono,
+  Yanone_Kaffeesatz
 } from "next/font/google";
 import "./theme/theme.scss";
 
@@ -13,9 +13,9 @@ const josefinSlab = Josefin_Slab({
   subsets: ["latin"],
   variable: "--font-headings",
 });
-const sourceCodePro = Source_Code_Pro({
+const victorMono = Victor_Mono({
   subsets: ["latin"],
-  variable: "--font-source-code-pro",
+  variable: "--font-victor-mono",
 });
 const yanoneKaffeesatz = Yanone_Kaffeesatz({
   subsets: ["latin"],
@@ -33,7 +33,7 @@ export default function RootLayout({
         className={classNames(
           lora.variable,
           josefinSlab.variable,
-          sourceCodePro.variable,
+          victorMono.variable,
           yanoneKaffeesatz.variable
         )}
       >
