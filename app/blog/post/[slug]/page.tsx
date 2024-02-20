@@ -6,6 +6,7 @@ import Group from "@/components/Group/Group";
 import Navigation from "@/components/Navigation/Navigation";
 import Tag from "@/components/Tag/Tag";
 import { getAllPosts, getPost } from "@/lib/fetchers";
+import classNames from "classnames";
 import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
@@ -18,7 +19,22 @@ const components = {
   Code,
   Example,
   Tag,
-  code: (props: any) => <Code {...props} />,
+  code: (props: any) => {
+    if (
+      props.children &&
+      typeof props.children === "string" &&
+      !(props.children as string).includes("\n")
+    ) {
+      return (
+        <span
+          {...props}
+          className={classNames(props.className, "inline-code")}
+        />
+      );
+    } else {
+      return <Code {...props} />;
+    }
+  },
 };
 
 export default async function Page({ params }: Props) {

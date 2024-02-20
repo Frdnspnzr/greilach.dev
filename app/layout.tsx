@@ -4,7 +4,7 @@ import {
   Josefin_Slab,
   Lora,
   Source_Code_Pro,
-  Yanone_Kaffeesatz
+  Yanone_Kaffeesatz,
 } from "next/font/google";
 import "./theme/theme.scss";
 
@@ -15,7 +15,7 @@ const josefinSlab = Josefin_Slab({
 });
 const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
-  variable: "--font-source-code",
+  variable: "--font-source-code-pro",
 });
 const yanoneKaffeesatz = Yanone_Kaffeesatz({
   subsets: ["latin"],

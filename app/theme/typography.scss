@@ -1,5 +1,9 @@
 @import "mixins";
 
+:root {
+  --font-source-code: var(--font-source-code-pro), "Courier New", Courier, monospace;
+}
+
 body {
   font-size: var(--font-step-0);
   font-family: var(--font-body);
@@ -179,6 +183,11 @@ li:hover::marker {
   @include fancy-gradient();
   font-weight: bold;
   font-size: var(--font-step-1);
+}
+
+.inline-code {
+  background-color: var(--color-faint);
+  font-family: var(--font-source-code);
 }
 
 // blockquote {
