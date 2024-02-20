@@ -1,12 +1,9 @@
 @import "mixins";
-
-:root {
-  --font-source-code: var(--font-victor-mono), "Courier New", Courier, monospace;
-}
+@import "variables";
 
 body {
   font-size: var(--font-step-0);
-  font-family: var(--font-body);
+  font-family: var(--font-lora), Cochin, serif;
 }
 
 h1,
@@ -15,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-headings);
+  font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;;
   text-wrap: balance;
   font-weight: normal;
 
@@ -100,7 +97,7 @@ a {
 
 pre,
 code {
-  font-family: var(--font-source-code);
+  font-family: var(--font-source-code-pro), "Courier New", Courier, monospace;
 }
 
 table {
@@ -116,7 +113,7 @@ table {
   }
 
   th {
-    font-family: var(--font-headings);
+    font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;;
     color: var(--color-primary);
     font-size: var(--font-step-1);
     text-align: left;
@@ -164,7 +161,7 @@ li:hover::marker {
   line-height: 1.15em;
   &,
   & > * {
-    font-family: var(--font-metadata);
+    font-family: var(--font-yanone-kaffeesatz);
   }
 
   h2 {
@@ -187,7 +184,9 @@ li:hover::marker {
 
 .inline-code {
   background-color: var(--color-faint);
-  font-family: var(--font-source-code);
+  font-family: var(--font-source-code-pro), "Courier New", Courier, monospace;
+  padding-inline: var(--space-2xs);
+  border-radius: var(--space-2xs);
 }
 
 // blockquote {

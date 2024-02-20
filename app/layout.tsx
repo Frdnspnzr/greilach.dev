@@ -3,23 +3,23 @@ import type { Metadata } from "next";
 import {
   Josefin_Slab,
   Lora,
-  Victor_Mono,
-  Yanone_Kaffeesatz
+  Source_Code_Pro,
+  Yanone_Kaffeesatz,
 } from "next/font/google";
 import "./theme/theme.scss";
 
-const lora = Lora({ subsets: ["latin"], variable: "--font-body" });
+const lora = Lora({ subsets: ["latin"], variable: "--font-lora" });
 const josefinSlab = Josefin_Slab({
   subsets: ["latin"],
-  variable: "--font-headings",
+  variable: "--font-josefin-slab",
 });
-const victorMono = Victor_Mono({
+const victorMono = Source_Code_Pro({
   subsets: ["latin"],
-  variable: "--font-victor-mono",
+  variable: "--font-source-code-pro",
 });
 const yanoneKaffeesatz = Yanone_Kaffeesatz({
   subsets: ["latin"],
-  variable: "--font-metadata",
+  variable: "--font-yanone-kaffeesatz",
 });
 
 export default function RootLayout({

@@ -12,7 +12,7 @@
 }
 
 .heading {
-  font-family: var(--font-headings);
+  font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;;
   /* text-decoration: underline; */
   text-decoration-color: var(--color-secondary);
   text-decoration-thickness: 0.05em;
