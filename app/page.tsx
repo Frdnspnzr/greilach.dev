@@ -18,9 +18,6 @@ export default function Home() {
           <li>
             <Link href="/blog">Blog</Link>
           </li>
-          <li>
-            <Link href="/design_system">Design System</Link>
-          </li>
         </ul>
       </main>
     </>
