@@ -1,0 +1,6 @@
+.group {
+  display: flex;
+  gap: var(--space-m);
+  flex-wrap: wrap;
+  margin-block-end: var(--space-s);
+}

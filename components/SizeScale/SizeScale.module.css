@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  grid-template-columns:
+    max-content min-content minmax(var(--size), min-content)
+    min-content;
+  text-align: center;
+}
+
+.container > div {
+  padding-inline: var(--space-s);
+  padding-block: var(--space-xs);
+}
+
+.heading {
+  font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;;
+  /* text-decoration: underline; */
+  text-decoration-color: var(--color-secondary);
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.1em;
+  background-color: var(--color-faint);
+}
+
+.box {
+  background-color: var(--color-example-box);
+  margin-inline: var(--space-l);
+  padding: 0 !important;
+}

@@ -1,0 +1,21 @@
+@mixin fancy-gradient() {
+  background: radial-gradient(
+      circle at 70% 40%,
+      var(--color-secondary) 0%,
+      var(--color-primary) 70%,
+      var(--color-primary-light) 100%
+    )
+    50% 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin text-gradient() {
+  background: linear-gradient(
+      var(--color-primary-light) 0%,
+      var(--color-primary) 100%
+    )
+    50% 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

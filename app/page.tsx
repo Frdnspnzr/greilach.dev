@@ -3,6 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
+      <nav>&nbsp;</nav>
       <h1>greilach.dev</h1>
       <main>
         <h2>Hi, I&apos;m Pascal</h2>

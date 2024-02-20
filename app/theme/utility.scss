@@ -1,0 +1,5 @@
+@import "mixins";
+
+.fancy {
+  @include fancy-gradient();
+}

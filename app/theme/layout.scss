@@ -1,60 +1,61 @@
-main {
-  width: 800px;
+.container {
+  width: clamp(0px, 95%, var(--size-layout-page));
   margin: auto;
-
-  @media only screen and (max-width: 600px) {
-    width: 100%;
-  }
+  padding-block-end: var(--space-xl);
 }
 
-.container {
-  display: grid;
+.text-container {
+  width: clamp(0px, 95%, var(--size-layout-content));
+}
 
-  width: min-content;
-  margin: var(--spacing) auto;
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-l);
+  margin: auto;
+  justify-content: center;
+  margin-block: var(--space-xs);
+  transition-property: all;
+  transition-duration: 0.5s;
+  flex-wrap: wrap;
 
-  grid-template-columns: 200px 800px 200px;
-  grid-template-rows: 30px;
-  grid-template-areas:
-    "navigation navigation navigation"
-    "header-left header header-right"
-    "left main right";
+  font-size: var(--font-step-0);
 
-  gap: var(--spacing);
+  color: var(--color-subtle);
+}
 
-  @media only screen and (max-width: 600px) {
-    width: 95vw;
-    margin: 0 2.5vw;
-    grid-template-columns: 95vw;
-    grid-template-rows: 76px;
-    grid-template-areas:
-      "navigation"
-      "header-left"
-      "header"
-      "header-right"
-      "left"
-      "main"
-      "right";
+.with-sidebar {
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: var(--space-l);
+}
+
+.with-sidebar > :first-child {
+  flex-basis: 10rem;
+  flex-grow: 1;
+}
+
+.with-sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 70%;
+}
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: var(--space-s);
+  justify-content: stretch;
+
+  > * {
+    flex-basis: 30vw;
+    flex-grow: 1;
+    flex-shrink: 999;
   }
 
-  > h1 {
-    grid-area: header;
-    margin: 0;
-  }
-
-  > main {
-    grid-area: main;
-  }
-
-  > nav {
-    grid-area: navigation;
-    display: flex;
-    justify-content: space-evenly;
-
-    @media only screen and (max-width: 600px) {
-      flex-direction: column;
-      gap: var(--spacing);
-      align-items: center;
-    }
+  > .wide {
+    flex-basis: 50vw;
   }
 }

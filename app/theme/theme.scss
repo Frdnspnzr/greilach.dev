@@ -1,4 +1,6 @@
 @import "variables";
+@import "reset";
+@import "utility";
 
 * {
   box-sizing: border-box;
@@ -8,15 +10,16 @@
 
 html,
 body {
-  color: var(--colors-text);
+  color: var(--color-text);
 }
 
 body {
   background: linear-gradient(
     to bottom,
-    var(--colors-background-start),
-    var(--colors-background-end)
+    var(--color-background-start),
+    var(--color-background-end)
   );
+  background-attachment: fixed;
   min-height: 100vh;
 }
 

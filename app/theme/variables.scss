@@ -1,23 +1,95 @@
-@use "sass:color";
+@use "../../node_modules/utopia-core-scss/src/utopia" as utopia;
+
+@import "palette";
 
 :root {
-    --ratio: 1.25;
+  /*
+   * SIZES
+   */
+  --size-s: #{utopia.calculateClamp(
+      (
+        "minWidth": 500,
+        "maxWidth": 1200,
+        "minSize": 88,
+        "maxSize": 110,
+      )
+    )};
+  --size-m: #{utopia.calculateClamp(
+      (
+        "minWidth": 500,
+        "maxWidth": 1200,
+        "minSize": 120,
+        "maxSize": 150,
+      )
+    )};
 
-    --colors-background-start: rgb(39, 35, 39);
-    --colors-background-end: rgb(6, 0, 15);
+  @include utopia.generateTypeScale(
+    (
+      "minWidth": 500,
+      "maxWidth": 1200,
+      "minFontSize": 18,
+      "maxFontSize": 20,
+      "minTypeScale": 1.2,
+      "maxTypeScale": 1.25,
+      "positiveSteps": 5,
+      "negativeSteps": 2,
+      "relativeTo": "viewport",
+      "prefix": "font-step-",
+    )
+  );
 
-    --colors-text: rgb(236, 236, 236);
+  @include utopia.generateSpaceScale(
+    (
+      "minWidth": 500,
+      "maxWidth": 1200,
+      "minSize": 12,
+      "maxSize": 16,
+      "positiveSteps": (
+        1.5,
+        2,
+        3,
+        4,
+        6,
+      ),
+      "negativeSteps": (
+        0.75,
+        0.5,
+        0.25,
+      ),
+      "relativeTo": "viewport",
+      "prefix": "space-",
+    )
+  );
 
-    --colors-text-highlight-strong: rgb(72, 26, 141);
-    --colors-text-highlight: rgb(137, 99, 196);
-    --colors-text-highlight-light: rgb(222, 207, 245);
+  --size-layout-page: 1000px;
+  --size-layout-content: 700px;
 
-    --colors-link-hover: #{color.scale(rgb(222, 207, 245), $lightness: -25%)};
-    --colors-link-active: #{color.scale(rgb(222, 207, 245), $lightness: -30%)};
+  /*
+   * SEMANTIC COLOR TOKENS
+   */
+  --color-primary: var(--purple-400);
+  --color-primary-light: var(--purple-300);
+  --color-primary-dark: var(--purple-600);
+  --color-secondary: var(--blue-400);
+  --color-subtle: var(--gray-500);
+  --color-faint: var(--gray-800);
 
-    --font-size-base: 1.25rem;
+  /*
+   * COMPONENT COLOR TOKENS
+   */
 
-    --spacing: var(--font-size-base);
-    --spacing-small: 0.4rem;
-    --spacing-big: calc(var(--spacing) * var(--ratio) * var(--ratio));
+  --color-border: var(--color-subtle);
+
+  --color-paper-background: var(--color-faint);
+  --color-paper-border: var(--color-border);
+
+  --color-background-start: var(--gray-900);
+  --color-background-end: var(--black);
+
+  --color-example-box: var(--color-primary);
+
+  /*
+   * TYPOGRAPHY COLORS
+   */
+  --color-text: var(--white);
 }
