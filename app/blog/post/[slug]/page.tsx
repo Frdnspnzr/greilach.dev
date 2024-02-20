@@ -25,13 +25,13 @@ export default async function Page({ params }: Props) {
   const post = getPost(params.slug);
   return (
     <>
-      <h1>{post.title}</h1>
       <nav>
         <BackToFrontPage />
         <Link href="/blog">
           <Navigation depth="landingpage">Back to all posts</Navigation>
         </Link>
       </nav>
+      <h1>{post.title}</h1>
       <div className="with-sidebar">
         <div className="sidebar">
           <div className="metadata">

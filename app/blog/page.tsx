@@ -9,10 +9,10 @@ export default async function Page() {
 
   return (
     <>
-      <Title>blog</Title>
       <nav>
         <BackToFrontPage />
       </nav>
+      <Title>blog</Title>
       <div className="text-container">
         <main>
           <h2>Latest posts</h2>

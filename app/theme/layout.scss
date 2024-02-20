@@ -19,18 +19,9 @@ nav {
   transition-duration: 0.5s;
   flex-wrap: wrap;
 
-  @media (hover: hover) {
-    font-size: var(--font-step--2);
+  font-size: var(--font-step-0);
 
-    a {
-      color: var(--color-subtle);
-    }
-
-    &:hover {
-      padding-block-end: var(--space-m);
-      font-size: var(--font-step-0);
-    }
-  }
+  color: var(--color-subtle);
 }
 
 .with-sidebar {
