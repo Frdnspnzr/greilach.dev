@@ -29,6 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="me" href="https://dice.camp/@Frdnspnzr" />
+      </head>
       <body
         className={classNames(
           lora.variable,
