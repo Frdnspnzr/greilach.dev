@@ -6,6 +6,7 @@
       var(--color-primary-light) 100%
     )
     50% 50%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -16,6 +17,7 @@
       var(--color-primary) 100%
     )
     50% 50%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

@@ -6,6 +6,15 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
+  ::selection {
+    background: var(--color-primary-light);
+
+    &:not(a, > code) {
+      color: var(--white);
+      -webkit-text-fill-color: var(--white);
+    }
+  }
 }
 
 html,
