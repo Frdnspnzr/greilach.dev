@@ -33,7 +33,7 @@ export default async function Page() {
                 <p>
                   {s.excerpt}{" "}
                   <Link href={`/blog/post/${s.slug}`}>
-                    Continue reading &#8594;
+                    Continue&nbsp;reading&nbsp;&#8594;
                   </Link>
                 </p>
               </>
