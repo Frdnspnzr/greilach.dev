@@ -1,26 +1,25 @@
 import fs from "fs";
-import matter from "gray-matter";
 import { join } from "path";
+import { parseMarkdown } from "./markdown";
 
 const postsDirectory = join(process.cwd(), "_posts");
 const fileExtension = ".mdx";
 const defaultDate = new Date(0);
 
 export function getAllPosts() {
-  return getPostSlugs().map(getPost);
+  return Promise.all(getPostSlugs().map(getPost));
 }
 
-export function getPost(slug: string) {
+export async function getPost(slug: string) {
   const filePath = join(postsDirectory, `${slug}${fileExtension}`);
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(fileContent);
+  const { content, frontmatter } = await parseMarkdown(fileContent);
 
   return {
-    ...data,
-    title: data.title || "",
-    tags: convertTags(data.tags || ""),
-    excerpt: data.excerpt || "",
-    date: data.date ? new Date(data.date) : defaultDate,
+    title: frontmatter.title || "",
+    tags: convertTags(frontmatter.tags || ""),
+    excerpt: frontmatter.excerpt || "",
+    date: frontmatter.date ? new Date(frontmatter.date) : defaultDate,
     slug: slug,
     content,
   };

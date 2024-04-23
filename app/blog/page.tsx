@@ -5,7 +5,7 @@ import { getAllPosts } from "@/lib/fetchers";
 import Link from "next/link";
 
 export default async function Page() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   return (
     <>

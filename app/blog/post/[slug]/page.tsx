@@ -1,44 +1,13 @@
 import BackToFrontPage from "@/components/BackToFrontPage";
-import Code from "@/components/Code/Code";
-import ColorDefinition from "@/components/ColorDefinition/ColorDefinition";
-import Example from "@/components/Example/Example";
-import Group from "@/components/Group/Group";
 import Navigation from "@/components/Navigation/Navigation";
-import Tag from "@/components/Tag/Tag";
 import { getAllPosts, getPost } from "@/lib/fetchers";
-import classNames from "classnames";
 import { Metadata } from "next";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 
 type Props = { params: { slug: string } };
 
-const components = {
-  ColorDefinition,
-  Group,
-  Code,
-  Example,
-  Tag,
-  code: (props: any) => {
-    if (
-      props.children &&
-      typeof props.children === "string" &&
-      !(props.children as string).includes("\n")
-    ) {
-      return (
-        <span
-          {...props}
-          className={classNames(props.className, "inline-code")}
-        />
-      );
-    } else {
-      return <Code {...props} />;
-    }
-  },
-};
-
 export default async function Page({ params }: Props) {
-  const post = getPost(params.slug);
+  const post = await getPost(params.slug);
   return (
     <>
       <nav>
@@ -50,6 +19,7 @@ export default async function Page({ params }: Props) {
       <h1>{post.title}</h1>
       <div className="with-sidebar">
         <div className="sidebar">
+          <div className="toc"></div>
           <div className="metadata">
             <h2>Date</h2>
             {post.date.toLocaleDateString()}
@@ -73,22 +43,20 @@ export default async function Page({ params }: Props) {
             </p>
           </div>
         </div>
-        <div className="text-container">
-          <MDXRemote source={post.content} components={components} />
-        </div>
+        <div className="text-container">{post.content}</div>
       </div>
     </>
   );
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getPost(params.slug);
+  const post = await getPost(params.slug);
   return {
     title: post.title,
   };
