@@ -5,6 +5,7 @@ import Group from "@/components/Group/Group";
 import Tag from "@/components/Tag/Tag";
 import classNames from "classnames";
 import { compileMDX } from "next-mdx-remote/rsc";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 interface Frontmatter {
   title?: string;
@@ -35,6 +36,42 @@ const components = {
       return <Code {...props} />;
     }
   },
+  h1: (
+    props: DetailedHTMLProps<
+      HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+    >
+  ) => {
+    if (props.children && typeof props.children === "string") {
+      return <h1 {...props} id={generateId(props.children)} />;
+    } else {
+      return <h1 {...props} />;
+    }
+  },
+  h2: (
+    props: DetailedHTMLProps<
+      HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+    >
+  ) => {
+    if (props.children && typeof props.children === "string") {
+      return <h2 {...props} id={generateId(props.children)} />;
+    } else {
+      return <h2 {...props} />;
+    }
+  },
+  h3: (
+    props: DetailedHTMLProps<
+      HTMLAttributes<HTMLHeadingElement>,
+      HTMLHeadingElement
+    >
+  ) => {
+    if (props.children && typeof props.children === "string") {
+      return <h3 {...props} id={generateId(props.children)} />;
+    } else {
+      return <h3 {...props} />;
+    }
+  },
 };
 
 export async function parseMarkdown(content: string) {
@@ -43,4 +80,12 @@ export async function parseMarkdown(content: string) {
     options: { parseFrontmatter: true },
     components,
   });
+}
+
+export function generateId(text: string) {
+  return text
+    .replace(/[^a-z0-9 ]/gi, "")
+    .trim()
+    .toLowerCase()
+    .replaceAll(" ", "-");
 }
