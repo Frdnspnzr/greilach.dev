@@ -10,6 +10,7 @@ import Tag from "@/components/Tag/Tag";
 import classNames from "classnames";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
+import Children from "react-children-utilities";
 
 interface Frontmatter {
   title?: string;
@@ -33,8 +34,8 @@ interface HeadingProps
 
 function Heading({ as, ...props }: HeadingProps) {
   const As = as;
-  if (props.children && typeof props.children === "string") {
-    return <As {...props} id={generateId(props.children)} />;
+  if (props.children) {
+    return <As {...props} id={generateId(Children.onlyText(props.children))} />;
   } else {
     return <As {...props} />;
   }
@@ -67,6 +68,29 @@ const components = {
   h3: (props: HeadingType) => <Heading {...props} as="h3" />,
   h4: (props: HeadingType) => <Heading {...props} as="h4" />,
 };
+
+// function nodeToText(node: ReactNode): string {
+//   // return (
+//   //   Children.map(node, (n) => {
+//   //     console.log(n);
+//   //     if (
+//   //       typeof n === "string" ||
+//   //       typeof n === "number" ||
+//   //       typeof n === "boolean"
+//   //     ) {
+//   //       return n;
+//   //     } else if (n && "children" in n) {
+//   //       return nodeToText(n.children);
+//   //     } else {
+//   //       return "";
+//   //     }
+//   //   }) || []
+//   // ).join(" ");
+//   const div = document.createElement("div");
+//   const root = createRoot(div);
+//   root.render(node);
+//   return div.innerText;
+// }
 
 export async function parseMarkdown(content: string) {
   return await compileMDX<Frontmatter>({
