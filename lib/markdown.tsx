@@ -18,6 +18,28 @@ interface Frontmatter {
   date?: string;
 }
 
+type HeadingType = DetailedHTMLProps<
+  HTMLAttributes<HTMLHeadingElement>,
+  HTMLHeadingElement
+>;
+
+interface HeadingProps
+  extends DetailedHTMLProps<
+    HTMLAttributes<HTMLHeadingElement>,
+    HTMLHeadingElement
+  > {
+  as: React.ElementType;
+}
+
+function Heading({ as, ...props }: HeadingProps) {
+  const As = as;
+  if (props.children && typeof props.children === "string") {
+    return <As {...props} id={generateId(props.children)} />;
+  } else {
+    return <As {...props} />;
+  }
+}
+
 const components = {
   ColorDefinition,
   Group,
@@ -40,54 +62,10 @@ const components = {
       return <Code {...props} />;
     }
   },
-  h1: (
-    props: DetailedHTMLProps<
-      HTMLAttributes<HTMLHeadingElement>,
-      HTMLHeadingElement
-    >
-  ) => {
-    if (props.children && typeof props.children === "string") {
-      return <h1 {...props} id={generateId(props.children)} />;
-    } else {
-      return <h1 {...props} />;
-    }
-  },
-  h2: (
-    props: DetailedHTMLProps<
-      HTMLAttributes<HTMLHeadingElement>,
-      HTMLHeadingElement
-    >
-  ) => {
-    if (props.children && typeof props.children === "string") {
-      return <h2 {...props} id={generateId(props.children)} />;
-    } else {
-      return <h2 {...props} />;
-    }
-  },
-  h3: (
-    props: DetailedHTMLProps<
-      HTMLAttributes<HTMLHeadingElement>,
-      HTMLHeadingElement
-    >
-  ) => {
-    if (props.children && typeof props.children === "string") {
-      return <h3 {...props} id={generateId(props.children)} />;
-    } else {
-      return <h3 {...props} />;
-    }
-  },
-  h4: (
-    props: DetailedHTMLProps<
-      HTMLAttributes<HTMLHeadingElement>,
-      HTMLHeadingElement
-    >
-  ) => {
-    if (props.children && typeof props.children === "string") {
-      return <h4 {...props} id={generateId(props.children)} />;
-    } else {
-      return <h4 {...props} />;
-    }
-  },
+  h1: (props: HeadingType) => <Heading {...props} as="h1" />,
+  h2: (props: HeadingType) => <Heading {...props} as="h2" />,
+  h3: (props: HeadingType) => <Heading {...props} as="h3" />,
+  h4: (props: HeadingType) => <Heading {...props} as="h4" />,
 };
 
 export async function parseMarkdown(content: string) {
@@ -121,7 +99,7 @@ export async function getAllHeadings(markdown: string): Promise<Heading[]> {
       return {
         level,
         content,
-        id
+        id,
       };
     })
   );
@@ -142,7 +120,11 @@ function collectUntilLevelDecrease(
       subheadings: [],
     };
 
-    if (match.level <= 3 && index + 1 < matches.length && matches[index + 1].level > match.level) {
+    if (
+      match.level <= 3 &&
+      index + 1 < matches.length &&
+      matches[index + 1].level > match.level
+    ) {
       heading.subheadings = collectUntilLevelDecrease(matches, index + 1);
     }
 
