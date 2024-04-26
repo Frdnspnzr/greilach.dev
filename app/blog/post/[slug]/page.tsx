@@ -42,12 +42,14 @@ export default async function Page({ params }: Props) {
               collaborative roleplaying to multiplayer ego-shooter).
             </p>
           </div>
-          <div className="metadata wide">
-            <h2>Table of contents</h2>
-            <TableOfContents headings={post.headings} />
+          <div className="sticky">
+            <div className="metadata">
+              <h2>Table of contents</h2>
+              <TableOfContents headings={post.headings} />
+            </div>
           </div>
         </div>
-        <div className="text-container">{post.content}</div>
+        <main className="text-container">{post.content}</main>
       </div>
     </>
   );
