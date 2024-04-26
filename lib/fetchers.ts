@@ -1,6 +1,6 @@
 import fs from "fs";
 import { join } from "path";
-import { parseMarkdown } from "./markdown";
+import { getAllHeadings, parseMarkdown } from "./markdown";
 
 const postsDirectory = join(process.cwd(), "_posts");
 const fileExtension = ".mdx";
@@ -14,6 +14,7 @@ export async function getPost(slug: string) {
   const filePath = join(postsDirectory, `${slug}${fileExtension}`);
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { content, frontmatter } = await parseMarkdown(fileContent);
+  const headings = await getAllHeadings(fileContent);
 
   return {
     title: frontmatter.title || "",
@@ -22,6 +23,7 @@ export async function getPost(slug: string) {
     date: frontmatter.date ? new Date(frontmatter.date) : defaultDate,
     slug: slug,
     content,
+    headings,
   };
 }
 
