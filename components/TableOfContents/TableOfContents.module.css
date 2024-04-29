@@ -24,6 +24,7 @@
 
 .list li:hover {
   color: var(--color-primary);
+  text-decoration: underline;
 }
 
 li:has(+ .list:hover) {
