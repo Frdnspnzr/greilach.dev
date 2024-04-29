@@ -1,5 +1,6 @@
 import BackToFrontPage from "@/components/BackToFrontPage";
 import Navigation from "@/components/Navigation/Navigation";
+import TableOfContents from "@/components/TableOfContents/TableOfContents";
 import { getAllPosts, getPost } from "@/lib/fetchers";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -19,7 +20,6 @@ export default async function Page({ params }: Props) {
       <h1>{post.title}</h1>
       <div className="with-sidebar">
         <div className="sidebar">
-          <div className="toc"></div>
           <div className="metadata">
             <h2>Date</h2>
             {post.date.toLocaleDateString()}
@@ -42,8 +42,14 @@ export default async function Page({ params }: Props) {
               collaborative roleplaying to multiplayer ego-shooter).
             </p>
           </div>
+          <div className="sticky">
+            <div className="metadata">
+              <h2>Table of contents</h2>
+              <TableOfContents headings={post.headings} />
+            </div>
+          </div>
         </div>
-        <div className="text-container">{post.content}</div>
+        <main className="text-container">{post.content}</main>
       </div>
     </>
   );
