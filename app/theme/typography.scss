@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;;
+  font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;
   text-wrap: balance;
   font-weight: normal;
 
@@ -113,7 +113,7 @@ table {
   }
 
   th {
-    font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;;
+    font-family: var(--font-josefin-slab), Arial, Helvetica, sans-serif;
     color: var(--color-primary);
     font-size: var(--font-step-1);
     text-align: left;
@@ -143,6 +143,10 @@ ul {
 ul {
   list-style-type: square;
   margin-block-end: var(--space-s);
+}
+
+li:not(:last-child) {
+  margin-block-end: var(--space-2xs);
 }
 
 li::marker {
