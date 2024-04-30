@@ -137,6 +137,7 @@ table {
 ol,
 ul {
   margin-left: var(--space-m);
+  max-width: calc(50ch - var(--space-m));
 }
 
 ul {
@@ -175,6 +176,17 @@ li:hover::marker {
     margin-block-start: 0;
     margin-block-end: var(--space-2xs);
   }
+}
+
+del {
+  text-decoration-line: line-through;
+  text-decoration-color: color-mix(
+    in srgb,
+    var(--color-primary),
+    transparent 20%
+  );
+  text-decoration-thickness: 0.15em;
+  color: var(--color-subtle);
 }
 
 .lead {
