@@ -1,0 +1,172 @@
+---
+title: Local development environment using PostgreSQL
+tags: PostgreSQL, VS Code, Docker, Tooling
+excerpt: "Managing local development environments kind of sucks when databases are involved. I solved that for me utilizing Docker and VS Code Tasks so I never have to think about it again."
+date: 2024-05-08
+---
+
+<p className="lead">Managing local development environments kind of sucks when databases are involved. I solved that for me utilizing Docker and VS Code Tasks so I never have to think about it again. </p>
+
+tl;dr: [Code](https://github.com/Frdnspnzr/autostart-database).
+
+I don't really have a homelab. I sometimes envy people that do, but it's entirely too much work for me. There's a few Raspberry Pis laying around but they all have a job and don't have the capacity to do much more than that. So I don't have a local server standing around that could run a database.
+
+When developing something that needs a database I still need one for testing, though. Using different database adapters locally and on the server is not always possible (looking at you, [Prisma](https://www.prisma.io)!). So I need to run as PostgreSQL server on my own computer. I don't want to have it running all the time even when doing something else, but I also don't want to start and stop it manually every time I need it. And while we're at it, if I could have strict separation between projects without thinking about schema names, that would be great!
+
+So I wrote a small hand full of scripts and config files to do just that for me. The main script is a shell script that starts PostgreSQL in a docker container utilizing nothing but local directories. That script is made to run in macOS and should be usable in Linux without additional work. This _should_ be portable to Windows, but I don't need that. If you made it work [get in touch](https://links.greilach.dev) and I'll add the script!
+
+#### run_postgres.sh
+```
+HOST_PORT=5432
+NAME=postgres-dev
+DOCKER_REPO=postgres
+TAG=15.4
+
+cleanup() {
+    echo "Stopping docker container..."
+    docker stop ${NAME}
+}
+trap 'cleanup' SIGTERM EXIT
+
+docker run --rm --name $NAME \
+  --volume `pwd`/pgdata:/var/lib/pgsql/data \
+  --volume `pwd`/mnt_data:/mnt/data \
+  --volume `pwd`/pg_hba.conf:/etc/postgresql/pg_hba.conf \
+  --volume `pwd`/postgresql.conf:/etc/postgresql/postgresql.conf \
+  -e POSTGRES_PASSWORD=password \
+  -e POSTGRES_USER=postgres \
+  -e PGDATA=/var/lib/pgsql/data/pgdata14 \
+  -e POSTGRES_INITDB_ARGS="--data-checksums --encoding=UTF8" \
+  -e POSTGRES_DB=db \
+  -p ${HOST_PORT}:5432 \
+  ${DOCKER_REPO}:${TAG} \
+  postgres \
+    -c 'config_file=/etc/postgresql/postgresql.conf' \
+    -c 'hba_file=/etc/postgresql/pg_hba.conf'
+```
+
+This starts a docker container, mounts the data directories and all necessary config files to local paths and binds the port to one I can access. The user and password are configured here and they may be very simple as shown here – the database is only reachable from your machine and only used for development work after all. You wouldn't put sensitive data into your local database, right?
+
+The first config file is the general PostgreSQL configuration.
+
+#### postgresql.conf
+```
+# PostgreSQL configuration file
+# See https://github.com/postgres/postgres/blob/master/src/backend/utils/misc/postgresql.conf.sample
+
+#------------------------------------------------------------------------------
+# CONNECTIONS AND AUTHENTICATION
+#------------------------------------------------------------------------------
+listen_addresses = '*'
+port = 5432
+max_connections = 100
+
+#------------------------------------------------------------------------------
+# RESOURCE USAGE (except WAL)
+#------------------------------------------------------------------------------
+shared_buffers = 1024MB
+work_mem = 40MB
+maintenance_work_mem = 640MB
+dynamic_shared_memory_type = posix
+max_parallel_workers_per_gather = 6
+max_parallel_workers = 12
+
+#------------------------------------------------------------------------------
+# WRITE-AHEAD LOG
+#------------------------------------------------------------------------------
+checkpoint_timeout = 40min
+max_wal_size = 1GB
+min_wal_size = 80MB
+checkpoint_completion_target = 0.75
+
+#------------------------------------------------------------------------------
+# REPORTING AND LOGGING
+#------------------------------------------------------------------------------
+logging_collector = off
+log_autovacuum_min_duration = 0
+log_checkpoints = on
+log_connections = on
+log_disconnections = on
+log_error_verbosity = default
+log_min_duration_statement = 20ms
+log_lock_waits = on
+log_temp_files = 0
+log_timezone = 'UTC'
+
+#------------------------------------------------------------------------------
+# AUTOVACUUM
+#------------------------------------------------------------------------------
+autovacuum_vacuum_scale_factor = 0.02
+autovacuum_analyze_scale_factor = 0.01
+
+#------------------------------------------------------------------------------
+# CLIENT CONNECTION DEFAULTS
+#------------------------------------------------------------------------------
+datestyle = 'iso, mdy'
+timezone = 'UTC'
+lc_messages = 'C.UTF-8'
+lc_monetary = 'C.UTF-8'
+lc_numeric = 'C.UTF-8'
+lc_time = 'C.UTF-8'
+default_text_search_config = 'pg_catalog.english'
+shared_preload_libraries = 'pg_stat_statements'
+```
+
+I put some lines in here to make it not take up that many resources and have a database that works more or less like one I'd use in a production environment. If you know how to configure PostgreSQL you can change whatever you prefer – if you just want a working database this configuration should be good enough.
+
+The second configuration file is the [PostgreSQL client authentication configuration.](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html).
+
+#### pg_hba.conf
+```
+# PostgreSQL Client Authentication Configuration File
+# ===================================================
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+
+# Database administrative login by UNIX sockets
+# "local" is for Unix domain socket connections only
+local   all         postgres                          ident
+local   all         all                               ident
+
+# IPv4 local connections:
+host    all         all         172.17.0.0/16         md5
+host    all         all         192.168.0.0/16        md5
+
+# IPv6 local connections:
+host    all         all         ::1/128               md5
+```
+
+I just configured it to allow access to all databases to all users coming from the local network, either via IPv4 or IPv6. I expect calls to be authenticated with a password. I'm allowing md5 just to make sure I can use older clients that do not support newer methods – please do not use md5 in production as it hasn't been considered secure for literal _decades_. I could have just allowed "authentication" without password for all the users (the password I use is `password` after all) but as nobody would ever do that in the real world _for sure_ I've went with something more realistic.
+
+I put all these files in a directory called `database` as I have never used that as a folder in an app. Calling `run_postgres.sh` boots up the database, creates all the folders if necessary and I can start using it and the database winds down as soon as I end the script. But that's still not automated enough for my liking.
+
+Visual Studio Code allows me to create tasks I can run from the command palette with the command `Tasks: Run Task`. You may have already used that to call npm scripts or something, but there's a way to create arbitrary tasks. In the project root folder you have to create a file called `./vscode/tasks.json`. The documentation what to put there is available [here](https://code.visualstudio.com/docs/editor/tasks#vscode) but a simple configuration to start the database would look like this:
+
+#### tasks.json
+```
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Database",
+      "type": "shell",
+      "command": "./run_postgres.sh",
+      "options": {
+        "cwd": "./database"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}
+```
+
+The task is called Database, it's a shell task, the working directory for that is `./database` (relative to the project root) and the command to run is `./run_postgres.sh` (relative to the working directory). That's basically it. But the real magic is the `runOptions`! Here we tell Visual Studio Code to run this task whenever we open the project so the database is available automagically. As Visual Studio Code closes all shell sessions and in doing so terminating the script the `cleanup()` function is called when closing VS Code or switching workspaces, so the database will be stopped.
+
+Generally, I add all this to my `.gitignore`. I don't want to tell other people how to do it or even to use VS Code. If you want to put this under version control you should _at least_ ignore the folders `database/mnt_data` and `database/pgdata` as that's where PostgreSQL puts its data.
+
+There are a few problems with this approach. First, it does not allow multiple workspaces to be open in parallel, as they would use the same docker container name and port. That could be alleviated by setting a different name and port per project, but I don't need to have multiple workspaces open very often and prefer the easier setup of a standardized config.
+
+Second, especially when using the `Developer: Reload Window` command often (the Typescript language server seems to need a well-meant slap from time to time) the stop and run command for the same container are sometimes executed out of order. I can live with that as that just means that the task will fail and I have to restart the task and it doesn't happen very often to begin with.
+
+So, yeah. Writing and explaining all those files took some time, but once you have them it's just a matter of seconds copying them to another project and get going with your local database. I really like that workflow of not thinking about databases at all and I hope I inspired someone to think about databases less. Be sure to [let me know how you handle your databases](https://links.greilach.dev)!
