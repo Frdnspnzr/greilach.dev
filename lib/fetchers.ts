@@ -24,6 +24,7 @@ export async function getPost(slug: string) {
     slug: slug,
     content,
     headings,
+    enableToc: frontmatter.enableToc,
   };
 }
 

@@ -17,6 +17,7 @@ interface Frontmatter {
   tags?: string;
   excerpt?: string;
   date?: string;
+  enableToc: boolean;
 }
 
 type HeadingType = DetailedHTMLProps<
@@ -68,29 +69,6 @@ const components = {
   h3: (props: HeadingType) => <Heading {...props} as="h3" />,
   h4: (props: HeadingType) => <Heading {...props} as="h4" />,
 };
-
-// function nodeToText(node: ReactNode): string {
-//   // return (
-//   //   Children.map(node, (n) => {
-//   //     console.log(n);
-//   //     if (
-//   //       typeof n === "string" ||
-//   //       typeof n === "number" ||
-//   //       typeof n === "boolean"
-//   //     ) {
-//   //       return n;
-//   //     } else if (n && "children" in n) {
-//   //       return nodeToText(n.children);
-//   //     } else {
-//   //       return "";
-//   //     }
-//   //   }) || []
-//   // ).join(" ");
-//   const div = document.createElement("div");
-//   const root = createRoot(div);
-//   root.render(node);
-//   return div.innerText;
-// }
 
 export async function parseMarkdown(content: string) {
   return await compileMDX<Frontmatter>({
