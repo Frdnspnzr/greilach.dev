@@ -98,6 +98,7 @@ a {
 pre,
 code {
   font-family: var(--font-source-code-pro), "Courier New", Courier, monospace;
+  font-size: var(--font-step--1)
 }
 
 table {
@@ -220,9 +221,4 @@ del {
 //     1;
 //   font-size: 1.1em;
 //   letter-spacing: 0.04em;
-// }
-
-// nav {
-//   font-size: calc(var(--font-size-base) / var(--ratio));
-//   text-underline-offset: 0.125em;
 // }
