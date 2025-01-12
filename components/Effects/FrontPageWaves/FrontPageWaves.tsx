@@ -12,7 +12,7 @@ export default function FrontPageWaves() {
       className={styles.svg}
     >
       {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-        <Wave base={(100 / 8) * i} />
+        <Wave base={(100 / 8) * i} key={i} />
       ))}
     </svg>
   );
@@ -52,7 +52,11 @@ function Wave({ base }: { base: number }) {
   return (
     <>
       {y.map((y, i) => (
-        <path d={`M ${0} ${base} L ${200} ${base}`} className={styles.path} />
+        <path
+          d={`M ${0} ${base} L ${200} ${base}`}
+          className={styles.path}
+          key={i}
+        />
       ))}
     </>
   );

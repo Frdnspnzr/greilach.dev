@@ -11,8 +11,8 @@ export default function FrontPageLines() {
       viewBox="0 0 100 100"
       className={styles.svg}
     >
-      {Array.from({ length: 20 }).map(() => (
-        <Line />
+      {Array.from({ length: 20 }).map((_, i) => (
+        <Line key={i} />
       ))}
     </svg>
   );

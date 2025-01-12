@@ -11,8 +11,8 @@ export default function FrontPageLanes() {
       viewBox="0 0 100 100"
       className={styles.svg}
     >
-      {Array.from({ length: 30 }).map(() => (
-        <Lane />
+      {Array.from({ length: 30 }).map((_, i) => (
+        <Lane key={i} />
       ))}
     </svg>
   );
