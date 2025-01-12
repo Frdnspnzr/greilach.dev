@@ -1,0 +1,16 @@
+.svg {
+  --front-page-lines-color: var(--color-primary);
+  --front-page-lines-width: 0.3;
+
+  width: 100%;
+  height: 100%;
+}
+
+.path {
+  stroke: var(--front-page-lines-color);
+  stroke-width: var(--front-page-lines-width);
+}
+
+.circle {
+  fill: var(--front-page-lines-color);
+}

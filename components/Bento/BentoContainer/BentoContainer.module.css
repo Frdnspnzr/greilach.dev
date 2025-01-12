@@ -1,0 +1,18 @@
+.container {
+  --gap: var(--bento-gap, var(--size-3));
+  --size: calc((var(--page-width) / var(--columns)) - (3 * var(--gap)));
+  display: grid;
+
+  margin: auto;
+  width: min-content;
+
+  grid-template-columns: repeat(var(--columns), var(--size));
+  grid-template-rows: repeat(var(--rows), var(--size));
+  gap: var(--size-3);
+
+  @media (width < 768px) {
+    display: flex;
+    flex-direction: column;
+    width: 100svw;
+  }
+}

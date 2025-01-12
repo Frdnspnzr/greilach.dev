@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./theme/theme.scss";
+import "./theme/styles.scss";
 
 export default function RootLayout({
   children,
@@ -10,10 +10,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="me" href="https://dice.camp/@Frdnspnzr" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body>
-        <div className="container">{children}</div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
