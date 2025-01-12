@@ -12,7 +12,7 @@ export default function Home() {
     <div className="container">
       <BentoContainer rows={4} columns={4}>
         <BentoElement row={1} column={1} bold color>
-          Hi, I'm Pascal.
+          Hi, I&apos;m Pascal.
         </BentoElement>
         <BentoElement row={1} column={2} image>
           <Image src={face} alt={"My face"} />

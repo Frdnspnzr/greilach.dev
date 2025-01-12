@@ -6,7 +6,7 @@ import { ReactTyped } from "react-typed";
 export default function FrontPageTyped() {
   return (
     <>
-      I'm a{" "}
+      I&apos;m a{" "}
       <Fancy>
         <ReactTyped
           strings={[
