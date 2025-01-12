@@ -1,11 +1,19 @@
 import BentoContainer from "@/components/Bento/BentoContainer/BentoContainer";
 import BentoElement from "@/components/Bento/BentoElement/BentoElement";
-import FrontPageLanes from "@/components/Effects/FrontPageLanes/FrontPageLanes";
-import FrontPageLines from "@/components/Effects/FrontPageLines/FrontPageLines";
 import FrontPageTyped from "@/components/Effects/FrontPageTyped/FrontPageTyped";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import face from "./face.jpg";
+
+const FrontPageLanes = dynamic(
+  () => import("@/components/Effects/FrontPageLanes/FrontPageLanes"),
+  { ssr: false }
+);
+const FrontPageLines = dynamic(
+  () => import("@/components/Effects/FrontPageLines/FrontPageLines"),
+  { ssr: false }
+);
 
 export default function Home() {
   return (
