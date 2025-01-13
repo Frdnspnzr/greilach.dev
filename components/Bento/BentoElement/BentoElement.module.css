@@ -1,5 +1,6 @@
 .element {
   --border-radius: var(--radius-4);
+  --hover-scale: 1.02;
 
   background-color: var(--color-surface-2);
   background-image: var(--gradient-surface-2);
@@ -18,7 +19,7 @@
 
 .element:hover {
   box-shadow: var(--shadow-4);
-  transform: scale(1.02);
+  transform: scale(var(--hover-scale));
 }
 
 .link a {
@@ -61,6 +62,17 @@
   border: none;
   box-shadow: none;
   transform: none;
+  --hover-scale: 1;
+}
+
+.title {
+  display: grid;
+  place-content: center;
+  color: var(--color-primary);
+
+  border: var(--size-2) solid var(--color-primary);
+
+  --hover-scale: 1;
 }
 
 .big {

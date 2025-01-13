@@ -14,6 +14,7 @@ interface BentoElementProps extends PropsWithChildren {
   color?: boolean;
   center?: boolean;
   invisible?: boolean;
+  title?: boolean;
 }
 
 export default function BentoElement({
@@ -28,6 +29,7 @@ export default function BentoElement({
   color = false,
   center = false,
   invisible = false,
+  title = false,
 }: BentoElementProps) {
   return (
     <div
@@ -38,6 +40,7 @@ export default function BentoElement({
         [styles.color]: color,
         [styles.center]: center,
         [styles.invisible]: invisible,
+        [styles.title]: title,
         [styles.big]: width > 1 || height > 1,
       })}
       style={{

@@ -1,4 +1,5 @@
-article {
+article,
+main {
   p,
   pre,
   ul,
@@ -46,6 +47,10 @@ article {
 
     &:visited {
       --color: var(--link-visited);
+    }
+
+    &:has(h1, h2, h3, h4, h5) {
+      text-decoration: none;
     }
   }
 
