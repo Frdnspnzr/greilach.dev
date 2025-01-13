@@ -43,7 +43,7 @@ export default function Home() {
           <FrontPageLines />
         </BentoElement>
         <BentoElement row={4} column={4} link bold center>
-          <Link href="https://links.greilach.dev">Links →</Link>
+          <Link href="https://links.greilach.dev">Links & Contact →</Link>
         </BentoElement>
         <BentoElement row={3} column={3} height={2} bold color>
           I will fight to play as yellow in any board game.
