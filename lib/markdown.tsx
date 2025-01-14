@@ -1,12 +1,8 @@
 import Code from "@/components/Code/Code";
-import ColorDefinition from "@/components/ColorDefinition/ColorDefinition";
-import Example from "@/components/Example/Example";
-import Group from "@/components/Group/Group";
 import {
   Heading,
   ToCContent,
 } from "@/components/TableOfContents/TableOfContents";
-import Tag from "@/components/Tag/Tag";
 import classNames from "classnames";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
@@ -43,11 +39,6 @@ function Heading({ as, ...props }: HeadingProps) {
 }
 
 const components = {
-  ColorDefinition,
-  Group,
-  Code,
-  Example,
-  Tag,
   code: (props: any) => {
     if (
       props.children &&
